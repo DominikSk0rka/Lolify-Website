@@ -4,7 +4,7 @@ import { heartIcon } from "./Icons";
 
 const NavBar = () => {
     return ( 
-    <header className="w-full px-32 py-8 font-medium flex items-center justify-between"> 
+    <header className="w-full px-32 py-8 font-medium flex items-center justify-between bg-white"> 
         <nav>
             <Link href="/" className="mr-4">Home</Link>
             <Link href="/champions" className="mx-4">Champions</Link>
