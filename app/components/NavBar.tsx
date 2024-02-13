@@ -15,7 +15,7 @@ const NavBar = () => {
 
         <nav className="px-16">
             <Link href="/favorite">
-                {heartIcon({ className: "w-10 h-10" })}
+                {heartIcon({ className: "w-8 h-10" })}
             </Link>
         </nav>
         
