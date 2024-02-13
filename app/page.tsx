@@ -1,12 +1,42 @@
+import Image from "next/image";
 import Container from "./components/Container";
+import AnimatedText from "./components/AnimatedText";
+import Link from "next/link";
 
 export default function Home() {
   return (
    <main className="flex items-center text-dark w-full min-h-screen">
-    <Container>
-      <div>Start</div>
+    <Container className="p-0">
+      <div className="flex items-center justify-between w-full ">
+        <div className="w-1/2">
+        <Image
+        src="/animations/giphy.gif"
+        alt="animacja"
+        width={600} 
+        height={600} 
+        className="w-full h-auto" 
+        />
+        </div>
+        
+        <div className="w-1/2 flex flex-col items-center self-center">
+        <AnimatedText text="Champions in League" className="pb-3"/>
+          <p className="mt-2 font-medium self-start text-start">
+            Greetings, summoners! I&apos;m Soraka, and I&apos;m here to guide you through the intricate world of League of Legends. Whether you&apos;re planning your next build or seeking insights into the diverse array of champions, this is the hub where your League of Legends journey takes a decisive turn.
+          </p>
+
+          <div className="flex items-center self-start mt-4 gap-2 xl:self-start">
+                <Link
+                href="/champions"
+                className="flex items-center bg-dark text-light p-2.5 px-6 rounded-lg text-lg font-semibold transition hover:scale-105 dark:bg-light dark:text-dark"
+                >
+                Champions
+                </Link>
+          </div>
+
+        </div>
+      </div>
     </Container>
    </main>
-  
+
   );
 }
