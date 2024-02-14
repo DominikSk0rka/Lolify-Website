@@ -8,7 +8,8 @@ export const heartIcon: React.FC<iconsProps> = ({ className, ...rest}) => (
         stroke="#000"
         strokeWidth={1.536}
         aria-hidden="true"
-
+        width={32}  
+        height={32}
         viewBox="0 0 64 64"
     {...rest}
     className={`w-full h-auto ${className}`}

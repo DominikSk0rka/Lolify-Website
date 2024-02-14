@@ -19,7 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${montserrat.variable} font-mont bg-light w-full min-h-screen`}>
-      <main>
+      <main className="flex flex-col h-screen justify-between">
         <NavBar />
        {children}
         <Footer />
