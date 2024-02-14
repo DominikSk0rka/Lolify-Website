@@ -3,6 +3,7 @@ import Container from "./components/Container";
 import AnimatedText from "./components/AnimatedText";
 import Link from "next/link";
 import ShakingImage from "./components/Image";
+import SelfWritingText from "./components/SelfWritingText";
 
 export default function Home() {
   return (
@@ -27,6 +28,7 @@ export default function Home() {
           </div>
         </div>
       </div>
+      <SelfWritingText />
     </Container>
    </main>
 

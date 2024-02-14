@@ -5,12 +5,13 @@ import Link from "next/link";
 import Button from "../components/inputs/Button";
 import Heading from "../components/inputs/Heading";
 import { useState } from "react";
+import toast from "react-hot-toast";
 
 const RegisterForm = () => {
 
     const [isLoading, setIsLoading] = useState(false);
     const handleButtonClick = () => {
-        console.log("registered");
+        toast.success("registerd");
     };
 
     return ( 

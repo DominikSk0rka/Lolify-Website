@@ -3,6 +3,7 @@ import { Montserrat } from "next/font/google"
 import "./globals.css";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
+import { Toaster } from "react-hot-toast";
 
 const montserrat = Montserrat({ subsets: ["latin"], variable: "--font-mont",})
 
@@ -23,6 +24,10 @@ export default function RootLayout({
         <NavBar />
        {children}
         <Footer />
+        <Toaster
+          position="top-center"
+          reverseOrder={false}
+        />
       </main>
       </body>
     </html>
