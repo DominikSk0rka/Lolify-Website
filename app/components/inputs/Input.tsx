@@ -1,5 +1,6 @@
 "use client";
 
+import { UseFormRegister, FieldValues, FieldErrors } from "react-hook-form";
 
 interface InputProps{
     id: string;
@@ -7,6 +8,8 @@ interface InputProps{
     type?: string;
     disabled?: boolean;
     required?: boolean;
+    register: UseFormRegister<FieldValues>;
+    errors: FieldErrors;
 }
 
 const Input:React.FC<InputProps> = ({
@@ -15,7 +18,8 @@ const Input:React.FC<InputProps> = ({
     type,
     disabled,
     required,
-
+    register,
+    errors
 
 
 }) => {
@@ -25,7 +29,7 @@ const Input:React.FC<InputProps> = ({
         autoComplete="off"
         id={id}
         disabled={disabled}
-      
+        {...register(id, {required})}
         placeholder=""
         type={type}
 
@@ -42,7 +46,8 @@ const Input:React.FC<InputProps> = ({
         transition
         disabled:opacity-70
         disabled:cursor-not-allowed
-       
+        ${errors[id]? "border-rose-400" : "border-slate-300"}
+        ${errors[id]? "focus:border-rose-400" : "focus:border-slate-300"}
         `
         }/>
 
@@ -64,7 +69,7 @@ const Input:React.FC<InputProps> = ({
         peer-placeholder-shown:translate-y-0
         peer-focus:scale-75
         peer-focus:-translate-y-4
-      
+        ${errors[id]? "text-rose-500" : "text-slate-400"}
         `}
 
         
