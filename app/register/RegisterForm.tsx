@@ -48,19 +48,6 @@ const RegisterForm = () => {
        &nbsp;sign in 
        </Link> 
     </p>
-
-        <div className="gap-2 flex flex-center">
-                <Button
-                outline
-                label="Continue with Google"
-                onClick={() => {("google")}}
-                />
-                <Button
-                outline
-                label="Continue with Facebook"
-                onClick={() => {}}
-                />
-        </div>
     </> 
     
     );

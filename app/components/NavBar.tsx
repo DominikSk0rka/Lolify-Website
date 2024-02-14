@@ -13,10 +13,11 @@ const NavBar = () => {
         <Logo />
         </div>
 
-        <nav className="px-16">
+        <nav className="px-8 flex flex-row">
             <Link href="/favorite">
                 {heartIcon({})}
             </Link>
+            <Link href="/login" className="mx-4">Login</Link>
         </nav>
         
      </header> );
