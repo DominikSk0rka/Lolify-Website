@@ -4,8 +4,15 @@ import Input from "../components/inputs/Input";
 import Link from "next/link";
 import Button from "../components/inputs/Button";
 import Heading from "../components/inputs/Heading";
+import { useState } from "react";
 
 const RegisterForm = () => {
+
+    const [isLoading, setIsLoading] = useState(false);
+    const handleButtonClick = () => {
+        console.log("registered");
+    };
+
     return ( 
     <>
     <Heading title="Sign up for Lolify"/>
@@ -34,7 +41,7 @@ const RegisterForm = () => {
     required
     type="password"
     /> 
-
+        <Button label = {isLoading ? "Loading..." : "Register"} onClick={handleButtonClick}/>
     <p className="text-sm">
         Already have an account?
        <Link className="underline" href="/login">
