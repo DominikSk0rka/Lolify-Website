@@ -40,13 +40,28 @@ const RegisterForm = () => {
     })
     .catch((error) => {
       if (error.response && error.response.status === 422) {
-        setValidationErrors(error.response.data);
-        console.log(validationErrors);
-        toast.error(`Registration failed: ${error.response.data.email}`);
-        toast.error(`Registration failed: ${error.response.data.password}`);
-        toast.error(`Registration failed: ${error.response.data.password_confirmation}`);
-        toast.error(`Registration failed: ${error.response.data.name}`);
-      }
+        const responseData = error.response.data;
+    
+        if (responseData.email) {
+            setValidationErrors({ email: responseData.email });
+            toast.error(`Registration failed: ${responseData.email}`);
+        }
+    
+        if (responseData.password) {
+            setValidationErrors({ password: responseData.password });
+            toast.error(`Registration failed: ${responseData.password}`);
+        }
+    
+        if (responseData.password_confirmation) {
+            setValidationErrors({ password_confirmation: responseData.password_confirmation });
+            toast.error(`Registration failed: ${responseData.password_confirmation}`);
+        }
+    
+        if (responseData.name) {
+            setValidationErrors({ name: responseData.name });
+            toast.error(`Registration failed: ${responseData.name}`);
+        }
+    }
     })
     .finally(() => {
       setIsLoading(false);
