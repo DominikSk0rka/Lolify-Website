@@ -1,12 +1,17 @@
+import Container from "../components/Container";
 import FormWrap from "../components/FormWrap";
 import RegisterForm from "./RegisterForm";
 
-const register = async() => {
-    return (
+const register = async () => {
+  return (
+    <Container>
+      <main className="dark:bg-dark">
         <FormWrap>
-            <RegisterForm />
+          <RegisterForm />
         </FormWrap>
-   );
-}
- 
+      </main>
+    </Container>
+  );
+};
+
 export default register;

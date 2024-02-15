@@ -1,4 +1,4 @@
-"use state"
+"use state";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
@@ -35,17 +35,17 @@ const ShakingImage = () => {
       transition={{
         type: "spring",
         stiffness: 60,
-        damping: 10
+        damping: 10,
       }}
     >
       <Link href="/admin">
-      <Image
-        src="/animations/giphy.gif"
-        alt="animacja"
-        width={600}
-        height={600}
-        className="w-full h-auto transition hover:scale-105"
-      />
+        <Image
+          src="/animations/giphy.gif"
+          alt="animacja"
+          width={600}
+          height={600}
+          className="w-full h-auto transition hover:scale-105"
+        />
       </Link>
     </motion.div>
   );

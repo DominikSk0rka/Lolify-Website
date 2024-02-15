@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React from "react";
 import { motion, Variants } from "framer-motion";
 
@@ -34,7 +34,10 @@ const singleWord: Variants = {
   },
 };
 
-const AnimatedText: React.FC<AnimatedTextProps> = ({ text, className = "" }) => {
+const AnimatedText: React.FC<AnimatedTextProps> = ({
+  text,
+  className = "",
+}) => {
   return (
     <div className="w-full mx-auto mb-6 flex items-center justify-center text-start overflow-hidden sm:py-0">
       <motion.h1

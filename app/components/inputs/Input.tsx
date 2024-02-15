@@ -2,37 +2,34 @@
 
 import { UseFormRegister, FieldValues, FieldErrors } from "react-hook-form";
 
-interface InputProps{
-    id: string;
-    label: string;
-    type?: string;
-    disabled?: boolean;
-    required?: boolean;
-    register: UseFormRegister<FieldValues>;
-    errors: FieldErrors;
+interface InputProps {
+  id: string;
+  label: string;
+  type?: string;
+  disabled?: boolean;
+  required?: boolean;
+  register: UseFormRegister<FieldValues>;
+  errors: FieldErrors;
 }
 
-const Input:React.FC<InputProps> = ({
-    id,
-    label,
-    type,
-    disabled,
-    required,
-    register,
-    errors
-
-
+const Input: React.FC<InputProps> = ({
+  id,
+  label,
+  type,
+  disabled,
+  required,
+  register,
+  errors,
 }) => {
-    return (
+  return (
     <div className="w-full relative">
-        <input
+      <input
         autoComplete="off"
         id={id}
         disabled={disabled}
-        {...register(id, {required})}
+        {...register(id, { required })}
         placeholder=""
         type={type}
-
         className={`
         peer
         w-full
@@ -46,13 +43,12 @@ const Input:React.FC<InputProps> = ({
         transition
         disabled:opacity-70
         disabled:cursor-not-allowed
-        ${errors[id]? "border-rose-400" : "border-slate-300"}
-        ${errors[id]? "focus:border-rose-400" : "focus:border-slate-300"}
-        `
-        }/>
+        ${errors[id] ? "border-rose-400" : "border-slate-300"}
+        ${errors[id] ? "focus:border-rose-400" : "focus:border-slate-300"}
+        `}
+      />
 
-
-        <label
+      <label
         htmlFor={id}
         className={`absolute 
         cursor-text
@@ -69,15 +65,13 @@ const Input:React.FC<InputProps> = ({
         peer-placeholder-shown:translate-y-0
         peer-focus:scale-75
         peer-focus:-translate-y-4
-        ${errors[id]? "text-rose-500" : "text-slate-400"}
+        ${errors[id] ? "text-rose-500" : "text-slate-400"}
         `}
-
-        
-        >{label}</label>
+      >
+        {label}
+      </label>
     </div>
-    );
+  );
 };
- 
-
 
 export default Input;

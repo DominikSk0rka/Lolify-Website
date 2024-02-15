@@ -1,18 +1,18 @@
-"use client"
-import { useState, useEffect } from 'react';
-import Cookies from 'js-cookie';
-import Link from 'next/link';
+"use client";
+import { useState, useEffect } from "react";
+import Cookies from "js-cookie";
+import Link from "next/link";
 
 const MenuItems = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
-    const token = Cookies.get('token');
+    const token = Cookies.get("token");
     setIsLoggedIn(!!token);
   }, []);
 
   const handleLogout = () => {
-    Cookies.remove('token');
+    Cookies.remove("token");
     setIsLoggedIn(false);
   };
 
