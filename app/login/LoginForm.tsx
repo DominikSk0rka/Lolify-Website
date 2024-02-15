@@ -20,6 +20,7 @@ const LoginForm = () => {
       const token = Cookies.get('token');
       if (token) {
           router.push('/');
+          router.refresh;
       }
   }, []);
 
