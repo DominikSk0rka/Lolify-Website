@@ -23,6 +23,7 @@ export const heartIcon: React.FC<iconsProps> = ({ className, ...rest }) => (
 interface SunIconProps {
   className?: string;
 }
+
 export const SunIcon: React.FC<SunIconProps> = ({ className, ...rest }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"

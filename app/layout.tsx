@@ -4,6 +4,7 @@ import "./globals.css";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 import { Toaster } from "react-hot-toast";
+import Script from "next/script";
 
 const montserrat = Montserrat({ subsets: ["latin"], variable: "--font-mont" });
 

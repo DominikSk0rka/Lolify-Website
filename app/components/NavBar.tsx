@@ -1,9 +1,11 @@
 "use client";
 import Link from "next/link";
 import Logo from "./Logo";
-import { MoonIcon, SunIcon, heartIcon } from "./Icons";
+import { heartIcon } from "./Icons";
 import MenuItems from "./inputs/MenuItems";
 import useThemeSwitcher from "@/hooks/useThemeSwitcher";
+import { LuMoon } from "react-icons/lu";
+import { BsSun } from "react-icons/bs";
 
 const NavBar = () => {
   const [mode, setMode] = useThemeSwitcher();
@@ -30,11 +32,7 @@ const NavBar = () => {
           onClick={() => setMode(mode === "light" ? "dark" : "light")}
           className="ml-3 flex items-center justify-center rounded-full p-1 "
         >
-          {mode === "dark" ? (
-            <SunIcon className={"fill-dark"} />
-          ) : (
-            <MoonIcon className={"fill-drak"} />
-          )}
+          {mode === "dark" ? <LuMoon size={30} /> : <BsSun size={30} />}
         </button>
       </nav>
     </header>

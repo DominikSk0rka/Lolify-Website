@@ -1,49 +1,54 @@
 import { useState, Dispatch, SetStateAction, useEffect } from "react";
 
 const useThemeSwitcher = (): [string, Dispatch<SetStateAction<string>>] => {
-  const preferDarkQuery = "(prefer-color-scheme: dark)";
-  const [mode, setMode] = useState<string>("light");
+  const preferDarkQuery = "(prefers-color-scheme: dark)";
+  const [mode, setMode] = useState<string>(() => {
+    if (typeof window !== "undefined") {
+      const userPref = window.localStorage.getItem("theme");
+      return userPref
+        ? userPref
+        : window.matchMedia(preferDarkQuery).matches
+        ? "dark"
+        : "light";
+    } else {
+      return "light"; // Default to light if window is not defined (e.g., during server-side rendering)
+    }
+  });
 
   useEffect(() => {
-    const mediaQuery = window.matchMedia(preferDarkQuery);
-    const userPref = window.localStorage.getItem("theme");
+    if (typeof window !== "undefined") {
+      const mediaQuery = window.matchMedia(preferDarkQuery);
 
-    const handleChange = () => {
-      if (userPref) {
-        let check = userPref === "dark" ? "dark" : "light";
+      const handleChange = () => {
+        const userPref = window.localStorage.getItem("theme");
+        const check = userPref === "dark" ? "dark" : "light";
         setMode(check);
+
         if (check === "dark") {
           document.documentElement.classList.add("dark");
         } else {
           document.documentElement.classList.remove("dark");
         }
-      } else {
-        let check = mediaQuery.matches ? "dark" : "light";
-        setMode(check);
-        if (check === "dark") {
-          document.documentElement.classList.add("dark");
-        } else {
-          document.documentElement.classList.remove("dark");
-        }
-      }
-    };
+      };
 
-    handleChange();
+      handleChange();
 
-    mediaQuery.addEventListener("change", handleChange);
+      mediaQuery.addEventListener("change", handleChange);
 
-    return () => mediaQuery.removeEventListener("change", handleChange);
+      return () => mediaQuery.removeEventListener("change", handleChange);
+    }
   }, []);
 
   useEffect(() => {
-    if (mode === "dark") {
-      window.localStorage.setItem("theme", "dark");
-      document.documentElement.classList.add("dark");
-    }
-
-    if (mode === "light") {
-      window.localStorage.setItem("theme", "light");
-      document.documentElement.classList.remove("dark");
+    if (typeof window !== "undefined") {
+      // Wrap client-specific code inside useEffect to avoid server-client mismatch
+      if (mode === "dark") {
+        window.localStorage.setItem("theme", "dark");
+        document.documentElement.classList.add("dark");
+      } else {
+        window.localStorage.setItem("theme", "light");
+        document.documentElement.classList.remove("dark");
+      }
     }
   }, [mode]);
 
