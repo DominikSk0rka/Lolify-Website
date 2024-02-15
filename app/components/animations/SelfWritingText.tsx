@@ -2,23 +2,27 @@ import { TypeAnimation } from "react-type-animation";
 
 const SelfWritingText = () => {
   return (
-    <TypeAnimation
-      sequence={[
-        "We produce food for Mice",
-        5000,
-        "We produce food for Hamsters",
-        5000,
-        "We produce food for Guinea Pigs",
-        5000,
-        "We produce food for Chinchillas",
-        5000,
-      ]}
-      wrapper="span"
-      speed={20}
-      style={{ fontSize: "2em", display: "inline-block" }}
-      repeat={Infinity}
-      className="dark:text-light"
-    />
+    <div className="text-center font-mono">
+      <TypeAnimation
+        sequence={[
+          "I bring warmth to the hearts...",
+          3000,
+          "I bring joy...",
+          3000,
+          "I bring happiness...",
+          3000,
+          "Who am I?",
+          1000,
+          "I am Leauge of Legends.",
+          100000,
+        ]}
+        wrapper="span"
+        speed={20}
+        style={{ fontSize: "2em", display: "inline-block" }}
+        repeat={Infinity}
+        className="dark:text-light"
+      />
+    </div>
   );
 };
 export default SelfWritingText;

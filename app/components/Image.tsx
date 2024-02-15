@@ -29,7 +29,7 @@ const ShakingImage = () => {
 
   return (
     <motion.div
-      className="w-1/2"
+      className="w-1/2 md:w-full lg:w-3/4 xl:w-4/6 "
       initial={{ scale: 0 }}
       animate={{ rotate: shouldShake ? [-4, 4, -4, 0] : 0, scale: 1 }}
       transition={{
@@ -44,7 +44,7 @@ const ShakingImage = () => {
           alt="animacja"
           width={600}
           height={600}
-          className="w-full h-auto transition hover:scale-105"
+          className="w-full h-auto lg:inline-block sm:inline-block sm:w-full xl:inline-block  md:inline-block md:w-full transition hover:scale-105"
         />
       </Link>
     </motion.div>

@@ -11,7 +11,7 @@ const useThemeSwitcher = (): [string, Dispatch<SetStateAction<string>>] => {
         ? "dark"
         : "light";
     } else {
-      return "light"; // Default to light if window is not defined (e.g., during server-side rendering)
+      return "light";
     }
   });
 
@@ -41,7 +41,6 @@ const useThemeSwitcher = (): [string, Dispatch<SetStateAction<string>>] => {
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      // Wrap client-specific code inside useEffect to avoid server-client mismatch
       if (mode === "dark") {
         window.localStorage.setItem("theme", "dark");
         document.documentElement.classList.add("dark");

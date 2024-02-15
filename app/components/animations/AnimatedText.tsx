@@ -39,7 +39,10 @@ const AnimatedText: React.FC<AnimatedTextProps> = ({
   className = "",
 }) => {
   return (
-    <div className="w-full mx-auto mb-6 flex items-center justify-center text-start overflow-hidden sm:py-0">
+    <div
+      className="mb-2 !text-6xl !text-left
+    xl:!text-5xl xl:!text-center lg:!text-center md:!text-center sm:!text-center xs:!text-center lg:!text-6xl md:!text-5xl sm:!text-3xl"
+    >
       <motion.h1
         className={`inline-block w-full text-dark font-bold capitalize text-8xl dark:text-light ${className}`}
         variants={quote}
@@ -49,7 +52,8 @@ const AnimatedText: React.FC<AnimatedTextProps> = ({
         {text.split(" ").map((word, index) => (
           <motion.span
             key={word + "-" + index}
-            className="inline-block"
+            className="mb-2 !text-6xl !text-left
+            xl:!text-5xl xl:!text-center lg:!text-center md:!text-center sm:!text-center xs:!text-center lg:!text-6xl md:!text-5xl sm:!text-3xl"
             variants={singleWord}
           >
             {word}&nbsp;

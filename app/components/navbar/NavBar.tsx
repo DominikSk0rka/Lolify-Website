@@ -1,7 +1,6 @@
 "use client";
 import Link, { LinkProps } from "next/link";
 import Logo from "../Logo";
-import { heartIcon } from "./Icons";
 import useThemeSwitcher from "@/hooks/useThemeSwitcher";
 import { LuMoon } from "react-icons/lu";
 import { BsSun } from "react-icons/bs";
@@ -9,6 +8,7 @@ import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { CiHeart } from "react-icons/ci";
 import Cookies from "js-cookie";
+import { Moon, Sun } from "../Icons";
 
 interface CustomLinkProps extends LinkProps {
   title: string;
@@ -128,7 +128,7 @@ const NavBar = () => {
             onClick={() => setMode(mode === "light" ? "dark" : "light")}
             className="flex items-center justify-center rounded-full w-10 transition hover:scale-110"
           >
-            {mode === "dark" ? <LuMoon size={30} /> : <BsSun size={30} />}
+            {mode === "dark" ? <Moon /> : <Sun />}
           </button>
         </nav>
       </div>
@@ -166,7 +166,7 @@ const NavBar = () => {
               onClick={() => setMode(mode === "light" ? "dark" : "light")}
               className="ml-3 flex items-center justify-center rounded-full p-1 transition hover:scale-110"
             >
-              {mode === "dark" ? <LuMoon size={30} /> : <BsSun size={30} />}
+              {mode === "dark" ? <Moon /> : <Sun />}
             </button>
           </nav>
 

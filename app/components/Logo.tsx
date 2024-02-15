@@ -13,17 +13,24 @@ const Logo = () => {
         whileHover={{
           scale: 1.2,
         }}
+        className="flex items-center "
       >
         <div className="flex items-center">
-          <Image
-            src="/Icons/leaugeIcon.png"
-            alt="Description of your image"
-            width={512}
-            height={512}
-          />
-          <h1 className="text-center text-black ml-2 dark:text-light">
-            Lolify
-          </h1>
+          <div className="sm:hidden md:hidden lg:hidden flex items-center">
+            <Image
+              src="/Icons/leaugeIcon.png"
+              alt="Logo"
+              width={512}
+              height={512}
+              className="mr-2"
+            />
+            <h1 className="text-black dark:text-light font-bold text-right">
+              Lolify
+            </h1>
+          </div>
+          <div className="hidden sm:flex md:flex lg:flex font-bold text-3xl">
+            <h1 className=" text-black dark:text-light">Lolify</h1>
+          </div>
         </div>
       </MotionLink>
     </div>
