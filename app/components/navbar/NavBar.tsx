@@ -2,8 +2,6 @@
 import Link, { LinkProps } from "next/link";
 import Logo from "../Logo";
 import useThemeSwitcher from "@/hooks/useThemeSwitcher";
-import { LuMoon } from "react-icons/lu";
-import { BsSun } from "react-icons/bs";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { CiHeart } from "react-icons/ci";
@@ -179,9 +177,12 @@ const NavBar = () => {
                 Logout
               </button>
             ) : (
-              <Link href="/login" className="mx-4">
-                Login
-              </Link>
+              <CustomMobileLink
+                href="/login"
+                title="Login"
+                className="mx-4 border-white border-[1px] dark:border-black  text-light p-2.5 px-6 rounded-lg text-lg font-semibold transition hover:scale-105 dark:text-dark"
+                toggle={handleClick}
+              />
             )}
           </div>
         </motion.div>
