@@ -4,7 +4,7 @@ import Container from "./Container";
 const Footer = () => {
   return (
     <footer className="w-full static font-medium text-lg dark:bg-dark pt-10">
-      <Container className="!py-10 flex items-center justify-between dark:bg-dark/90 dark:text-light">
+      <Container className="!py-10 p-32 flex items-center justify-between dark:bg-dark/90 dark:text-light">
         <span>{new Date().getFullYear()}&copy; All Rights Reserved</span>
         <Link
           href="/"
