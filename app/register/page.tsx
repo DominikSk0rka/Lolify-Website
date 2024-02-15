@@ -1,5 +1,5 @@
-import Container from "../components/Container";
-import FormWrap from "../components/FormWrap";
+import Container from "../components/inputs/Container";
+import FormWrap from "../components/inputs/FormWrap";
 import RegisterForm from "./RegisterForm";
 
 const register = async () => {

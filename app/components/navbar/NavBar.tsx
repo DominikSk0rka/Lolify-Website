@@ -1,6 +1,6 @@
 "use client";
 import Link, { LinkProps } from "next/link";
-import Logo from "./Logo";
+import Logo from "../Logo";
 import { heartIcon } from "./Icons";
 import useThemeSwitcher from "@/hooks/useThemeSwitcher";
 import { LuMoon } from "react-icons/lu";

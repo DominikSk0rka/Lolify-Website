@@ -1,9 +1,9 @@
 "use client";
-import Container from "./components/Container";
-import AnimatedText from "./components/AnimatedText";
+import Container from "./components/inputs/Container";
+import AnimatedText from "./components/animations/AnimatedText";
 import Link from "next/link";
 import ShakingImage from "./components/Image";
-import SelfWritingText from "./components/SelfWritingText";
+import SelfWritingText from "./components/animations/SelfWritingText";
 
 export default function Home() {
   return (

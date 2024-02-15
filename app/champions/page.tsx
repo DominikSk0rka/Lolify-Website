@@ -1,5 +1,5 @@
-import AnimatedText from "../components/AnimatedText";
-import Container from "../components/Container";
+import AnimatedText from "../components/animations/AnimatedText";
+import Container from "../components/inputs/Container";
 
 const champions = () => {
   return (
