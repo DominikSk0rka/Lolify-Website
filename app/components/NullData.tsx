@@ -1,11 +1,11 @@
 "use client"
 import Image from "next/image";
 import Link from "next/link";
-import Container from "../components/Container";
-import AnimatedText from "../components/AnimatedText";
+import Container from "./Container";
+import AnimatedText from "./AnimatedText";
 import { TypeAnimation } from "react-type-animation";
 
-const nullData = () => {
+const NullData = () => {
     return (
 <main className="flex mt-6 text-dark w-full min-h-screen">
 <Container className="p-0">
@@ -56,4 +56,4 @@ const nullData = () => {
 
 
 
-export default nullData;
+export default NullData;

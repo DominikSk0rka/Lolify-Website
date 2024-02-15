@@ -37,7 +37,7 @@ const ShakingImage = () => {
         damping: 10
       }}
     >
-      <Link href="/nullData">
+      <Link href="/admin">
       <Image
         src="/animations/giphy.gif"
         alt="animacja"
