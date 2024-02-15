@@ -4,7 +4,7 @@ import Input from "../components/inputs/Input";
 import Link from "next/link";
 import Button from "../components/inputs/Button";
 import Heading from "../components/inputs/Heading";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import axios from "axios";
@@ -15,6 +15,13 @@ import Cookies from 'js-cookie';
 const LoginForm = () => {
 
     const router = useRouter();
+
+    useEffect(() => {
+      const token = Cookies.get('token');
+      if (token) {
+          router.push('/');
+      }
+  }, []);
 
     const [isLoading, setIsLoading] = useState(false);
     const [validationErrors, setValidationErrors] = useState({});

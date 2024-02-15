@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Logo from "./Logo";
 import { heartIcon } from "./Icons";
+import MenuItems from "./inputs/MenuItems";
 
 const NavBar = () => {
     return ( 
@@ -17,7 +18,7 @@ const NavBar = () => {
             <Link href="/favorite">
                 {heartIcon({})}
             </Link>
-            <Link href="/login" className="mx-4">Login</Link>
+            <MenuItems />
         </nav>
         
      </header> );
