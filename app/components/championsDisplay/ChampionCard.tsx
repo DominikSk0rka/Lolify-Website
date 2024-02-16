@@ -8,19 +8,19 @@ interface ChampionCardProps {
 
 const ChampionCard: React.FC<ChampionCardProps> = ({ champion }) => {
   return (
-    <div className="col-span-1 cursor-pointer rounded-lg border-[1.2px] border-dark bg-light dark:border-light dark:text-light dark:bg-dark/70 p-2 transition hover:scale-105 text-center text-sm">
-      <div className="flex flex-col items-center w-full">
-        <div className="aspect-square overflow-hidden relative w-full">
+    <div className="col-span-1 cursor-pointer rounded-b-xl border-[1.5px] border-dark bg-light dark:border-light dark:text-light dark:bg-dark/70 transition hover:scale-105 text-center text-sm">
+      <div className="flex flex-col">
+        <div className="relative pb-6">
           <Image
             src={champion.image_link}
             alt={champion.name}
-            layout="fill"
-            objectFit="contain"
-            className="w-full h-full"
+            width={1215}
+            height={517}
+            priority
           />
         </div>
+        <div className="font-bold pb-8">{champion.name}</div>
       </div>
-      <div className="font-bold">{champion.name}</div>
     </div>
   );
 };
