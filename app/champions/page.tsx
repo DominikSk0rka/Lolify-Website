@@ -1,7 +1,10 @@
 "use client";
+
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Cookies from "js-cookie";
+import ChampionCard from "../components/championsDisplay/ChampionCard";
+import Container from "../components/inputs/Container";
 
 const Champions = () => {
   const [champions, setChampions] = useState([]);
@@ -24,14 +27,13 @@ const Champions = () => {
   }, [champions]);
 
   return (
-    <div>
-      {champions.map((champion) => (
-        <div key={champion.id}>
-          <h2>{champion.name}</h2>
-          <img src={champion.image_link} alt={champion.name} />
-        </div>
-      ))}
-    </div>
+    <Container>
+      <div>
+        {champions.map((champion) => (
+          <ChampionCard key={champion} champion={champion} />
+        ))}
+      </div>
+    </Container>
   );
 };
 
