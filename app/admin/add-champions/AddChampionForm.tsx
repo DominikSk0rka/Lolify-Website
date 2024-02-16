@@ -5,6 +5,7 @@ import Input from "@/app/components/inputs/Input";
 import TextArea from "@/app/components/inputs/TextArea";
 import { useState } from "react";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
+import toast from "react-hot-toast";
 
 const AddChampionForm = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -17,6 +18,7 @@ const AddChampionForm = () => {
       name: "",
       description: "",
       title: "",
+      main_image_link: "",
     },
   });
 
@@ -51,6 +53,12 @@ const AddChampionForm = () => {
         register={register}
         errors={errors}
         required
+      />
+      <input
+        type="file"
+        id="main_image_link"
+        disabled={isLoading}
+        {...register("main_image_link", { required: "Image is required" })}
       />
 
       <Button
