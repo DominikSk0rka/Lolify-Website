@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import Cookies from "js-cookie";
 import NullData from "../components/NullData";
 import Container from "../components/inputs/Container";
+import Link from "next/link";
 
 const Admin = () => {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -17,7 +18,7 @@ const Admin = () => {
   return (
     <Container>
       <main className="dark:text-white">
-        <div>{loggedIn ? <div>Welcome!</div> : <NullData />}</div>
+        {loggedIn ? <Link href="admin/add-champion">Admin</Link> : <NullData />}
       </main>
     </Container>
   );

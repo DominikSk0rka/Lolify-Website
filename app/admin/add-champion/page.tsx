@@ -2,9 +2,9 @@ import Container from "@/app/components/inputs/Container";
 import FormWrap from "@/app/components/inputs/FormWrap";
 import AddChampionForm from "./AddChampionForm";
 
-const AddChampions = () => {
+const AddChampions = async () => {
   return (
-    <div className="p-8">
+    <div>
       <Container>
         <FormWrap>
           <AddChampionForm />
