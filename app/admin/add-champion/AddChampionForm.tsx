@@ -4,7 +4,7 @@ import Heading from "@/app/components/inputs/Heading";
 import Input from "@/app/components/inputs/Input";
 import TextArea from "@/app/components/inputs/TextArea";
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import Cookies from "js-cookie";
@@ -12,10 +12,12 @@ import Cookies from "js-cookie";
 const AddChampionForm = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [validationErrors, setValidationErrors] = useState({});
+  const [isChampionCreated, setisChampionCreated] = useState(false);
   const {
     register,
     handleSubmit,
     setValue,
+    reset,
     formState: { errors },
   } = useForm<FieldValues>({
     defaultValues: {
@@ -23,6 +25,7 @@ const AddChampionForm = () => {
       description: "",
       roles: [],
       image_file: "",
+      title: "",
     },
   });
 
@@ -33,6 +36,14 @@ const AddChampionForm = () => {
     { id: 4, name: "ADC" },
     { id: 5, name: "SUPPORT" },
   ];
+
+  useEffect(() => {
+    if (isChampionCreated) {
+      reset();
+      setValue("file", null);
+      setisChampionCreated(false);
+    }
+  }, [isChampionCreated, reset, setValue]);
 
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
     data.roles = Object.entries(data.roles)
@@ -51,6 +62,10 @@ const AddChampionForm = () => {
           "Content-Type": "multipart/form-data",
           Authorization: `Bearer ${token}`,
         },
+      })
+      .then((response) => {
+        setisChampionCreated(true);
+        toast.success("Champion added successfully!");
       })
       .catch((error) => {
         if (error.response && error.response.status === 422) {
