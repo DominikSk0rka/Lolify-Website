@@ -7,8 +7,13 @@ import ChampionCard from "../components/championsDisplay/ChampionCard";
 import Container from "../components/inputs/Container";
 import AnimatedText from "../components/animations/AnimatedText";
 
+interface Champion {
+  id: number;
+  name: string;
+}
+
 const Champions = () => {
-  const [champions, setChampions] = useState([]);
+  const [champions, setChampions] = useState<Champion[]>([]);
 
   useEffect(() => {
     const token = Cookies.get("token");
