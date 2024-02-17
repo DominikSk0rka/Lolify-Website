@@ -176,6 +176,7 @@ const AddChampionForm = () => {
         register={register}
         errors={errors}
       />
+
       <TextArea
         id="description"
         label="Opis"
@@ -183,16 +184,7 @@ const AddChampionForm = () => {
         register={register}
         errors={errors}
       />
-      <input
-        type="file"
-        id="image_file"
-        onChange={(event) => {
-          if (event.target.files && event.target.files.length > 0) {
-            const file = event.target.files[0];
-            setValue("image_file", file);
-          }
-        }}
-      />
+
       <div className="text-center">
         <label htmlFor="roles">Roles</label>
         <div className="flex">
@@ -208,6 +200,19 @@ const AddChampionForm = () => {
               </label>
             </div>
           ))}
+        </div>
+        <div className="pt-5 pb-5 text-center">
+          Zdjęcie
+          <input
+            type="file"
+            id="image_file"
+            onChange={(event) => {
+              if (event.target.files && event.target.files.length > 0) {
+                const file = event.target.files[0];
+                setValue("image_file", file);
+              }
+            }}
+          />
         </div>
 
         <Input

@@ -3,8 +3,9 @@ import { useState, useEffect } from "react";
 import { DataGrid, GridColDef } from "@mui/x-data-grid";
 import ActionBtn from "@/app/components/inputs/ActionBtn";
 import { MdDelete } from "react-icons/md";
-import Heading from "@/app/components/inputs/Heading";
+import Cookies from "js-cookie";
 import axios from "axios";
+import toast from "react-hot-toast";
 
 interface Champion {
   id: number;
@@ -15,7 +16,7 @@ interface Champion {
 
 const ManageChampionsForm: React.FC = () => {
   const [champions, setChampions] = useState<Champion[]>([]);
-
+  const [isChampiondeleted, setisChampiondeleted] = useState(false);
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -55,10 +56,21 @@ const ManageChampionsForm: React.FC = () => {
       ),
     },
   ];
-
+  const token = Cookies.get("token");
   const handleDeleteChampion = async (id: number) => {
     try {
-      await axios.delete(`https://lolify.fly.dev/api/champion/${id}`);
+      await axios
+        .delete(`https://lolify.fly.dev/api/champion/${id}`, {
+          headers: {
+            "Content-Type": "multipart/form-data",
+            Authorization: `Bearer ${token}`,
+          },
+        })
+        .then((response) => {
+          setisChampiondeleted(true);
+          toast.success("Champion delated successfully!");
+        });
+
       setChampions((prevChampions) =>
         prevChampions.filter((champion) => champion.id !== id)
       );

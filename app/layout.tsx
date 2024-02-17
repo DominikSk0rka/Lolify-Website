@@ -23,7 +23,7 @@ export default function RootLayout({
       <body
         className={`${montserrat.variable} font-mont bg-light w-full min-h-screen`}
       >
-        <main className="flex flex-col justify-between">
+        <main className="flex flex-col justify-between h-screen">
           <NavBar />
           {children}
 
