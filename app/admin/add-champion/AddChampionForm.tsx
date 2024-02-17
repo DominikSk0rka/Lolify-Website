@@ -25,6 +25,20 @@ const AddChampionForm = () => {
       roles: [],
       image_file: "",
       title: "",
+      q_name: "",
+      q_image_file: "",
+      w_name: "",
+      w_image_file: "",
+      e_name: "",
+      e_image_file: "",
+      r_name: "",
+      r_image_file: "",
+      passive_name: "",
+      passive_image_file: "",
+      skin_1_image_file: "",
+      skin_2_image_file: "",
+      skin_3_image_file: "",
+      skin_4_image_file: "",
     },
   });
 
@@ -95,6 +109,47 @@ const AddChampionForm = () => {
             setValidationErrors({ name: responseData.roles });
             toast.error(`Wrong data ${responseData.roles}`);
           }
+          if (responseData.q_name) {
+            setValidationErrors({ name: responseData.q_name });
+            toast.error(`Wrong data ${responseData.q_name}`);
+          }
+          if (responseData.w_name) {
+            setValidationErrors({ name: responseData.w_name });
+            toast.error(`Wrong data ${responseData.w_name}`);
+          }
+          if (responseData.e_name) {
+            setValidationErrors({ name: responseData.e_name });
+            toast.error(`Wrong data ${responseData.e_name}`);
+          }
+          if (responseData.r_name) {
+            setValidationErrors({ name: responseData.r_name });
+            toast.error(`Wrong data ${responseData.r_name}`);
+          }
+          if (responseData.passive_name) {
+            setValidationErrors({ name: responseData.passive_name });
+            toast.error(`Wrong data ${responseData.passive_name}`);
+          }
+
+          if (responseData.q_image_file) {
+            setValidationErrors({ name: responseData.q_image_file });
+            toast.error(`Wrong data ${responseData.q_image_file}`);
+          }
+          if (responseData.w_image_file) {
+            setValidationErrors({ name: responseData.w_image_file });
+            toast.error(`Wrong data ${responseData.w_image_file}`);
+          }
+          if (responseData.e_image_file) {
+            setValidationErrors({ name: responseData.e_image_file });
+            toast.error(`Wrong data ${responseData.e_image_file}`);
+          }
+          if (responseData.r_image_file) {
+            setValidationErrors({ name: responseData.r_image_file });
+            toast.error(`Wrong data ${responseData.r_image_file}`);
+          }
+          if (responseData.passive_image_file) {
+            setValidationErrors({ name: responseData.passive_image_file });
+            toast.error(`Wrong data ${responseData.passive_image_file}`);
+          }
         }
       })
       .finally(() => {
@@ -154,7 +209,138 @@ const AddChampionForm = () => {
             </div>
           ))}
         </div>
+
+        <Input
+          id="q_name"
+          label="Q"
+          disabled={isLoading}
+          register={register}
+          errors={errors}
+        />
+        <input
+          type="file"
+          id="q_image_file"
+          onChange={(event) => {
+            if (event.target.files && event.target.files.length > 0) {
+              const file = event.target.files[0];
+              setValue("q_image_file", file);
+            }
+          }}
+        />
+        <Input
+          id="w_name"
+          label="W"
+          disabled={isLoading}
+          register={register}
+          errors={errors}
+        />
+        <input
+          type="file"
+          id="w_image_file"
+          onChange={(event) => {
+            if (event.target.files && event.target.files.length > 0) {
+              const file = event.target.files[0];
+              setValue("w_image_file", file);
+            }
+          }}
+        />
+        <Input
+          id="e_name"
+          label="E"
+          disabled={isLoading}
+          register={register}
+          errors={errors}
+        />
+        <input
+          type="file"
+          id="e_image_file"
+          onChange={(event) => {
+            if (event.target.files && event.target.files.length > 0) {
+              const file = event.target.files[0];
+              setValue("e_image_file", file);
+            }
+          }}
+        />
+        <Input
+          id="r_name"
+          label="R"
+          disabled={isLoading}
+          register={register}
+          errors={errors}
+        />
+        <input
+          type="file"
+          id="r_image_file"
+          onChange={(event) => {
+            if (event.target.files && event.target.files.length > 0) {
+              const file = event.target.files[0];
+              setValue("r_image_file", file);
+            }
+          }}
+        />
+        <Input
+          id="passive_name"
+          label="Passive"
+          disabled={isLoading}
+          register={register}
+          errors={errors}
+        />
+        <input
+          type="file"
+          id="passive_image_file"
+          onChange={(event) => {
+            if (event.target.files && event.target.files.length > 0) {
+              const file = event.target.files[0];
+              setValue("passive_image_file", file);
+            }
+          }}
+        />
+        {/*------------------------------------------------------------------*/}
+        <div className="pt-10">
+          <input
+            type="file"
+            id="skin_1_image_file"
+            onChange={(event) => {
+              if (event.target.files && event.target.files.length > 0) {
+                const file = event.target.files[0];
+                setValue("skin_1_image_file", file);
+              }
+            }}
+          />
+          <input
+            type="file"
+            id="skin_2_image_file"
+            onChange={(event) => {
+              if (event.target.files && event.target.files.length > 0) {
+                const file = event.target.files[0];
+                setValue("skin_2_image_file", file);
+              }
+            }}
+          />
+          <input
+            type="file"
+            id="skin_3_image_file"
+            onChange={(event) => {
+              if (event.target.files && event.target.files.length > 0) {
+                const file = event.target.files[0];
+                setValue("skin_3_image_file", file);
+              }
+            }}
+          />
+          <input
+            type="file"
+            id="skin_4_image_file"
+            onChange={(event) => {
+              if (event.target.files && event.target.files.length > 0) {
+                const file = event.target.files[0];
+                setValue("skin_3_image_file", file);
+              }
+            }}
+          />
+        </div>
       </div>
+      {/*-----------------------------------------------------------------------------*/}
+
       <Button
         label={isLoading ? "Loading..." : "Add"}
         onClick={handleSubmit(onSubmit)}

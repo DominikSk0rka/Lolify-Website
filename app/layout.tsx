@@ -23,10 +23,10 @@ export default function RootLayout({
       <body
         className={`${montserrat.variable} font-mont bg-light w-full min-h-screen`}
       >
-        <main className="flex flex-col h-screen justify-between">
+        <main className="flex flex-col justify-between">
           <NavBar />
           {children}
-          <Footer />
+
           <Toaster position="top-center" reverseOrder={false} />
         </main>
       </body>
