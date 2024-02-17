@@ -1,9 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import Cookies from "js-cookie";
-import NullData from "../components/NullData";
-import Container from "../components/inputs/Container";
-import Link from "next/link";
+import Container2 from "../components/inputs/Container2";
 
 const Admin = () => {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -16,18 +14,13 @@ const Admin = () => {
   }, []);
 
   return (
-    <Container>
-      <main className="dark:text-white">
-        {loggedIn ? (
-          <div className="flex flex-col gap-2">
-            <Link href="admin/add-champion">Admin</Link>
-            <Link href="admin/manage">Manage Champions</Link>
-          </div>
-        ) : (
-          <NullData />
-        )}
-      </main>
-    </Container>
+    <div>
+      <Container2 className="dark:text-light">
+        <div className="text-center text-6xl pt-10 font-bold font-mono">
+          Admin Panel
+        </div>
+      </Container2>
+    </div>
   );
 };
 

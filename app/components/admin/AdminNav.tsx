@@ -2,38 +2,41 @@
 
 import Link from "next/link";
 import AdminNavItem from "./AdminNavItem";
-import {
-  MdDashboard,
-  MdDns,
-  MdFormatListBulleted,
-  MdLibraryAdd,
-} from "react-icons/md";
-
+import { MdDashboard, MdDns, MdLibraryAdd } from "react-icons/md";
 import { usePathname } from "next/navigation";
-import Container from "../inputs/Container";
+import Container2 from "../inputs/Container2";
 
 const AdminNav = () => {
   const pathname = usePathname();
 
   return (
-    <Container>
-      <div className="flex flex-row items-center justify-between md:justify-center gap-8 md:gap-12 overflow-x-auto flex-nowrap">
-        <Link href="/admin">
-          <AdminNavItem
-            label="Main"
-            icon={MdDashboard}
-            selected={pathname === "/admin"}
-          />
-        </Link>
-        <Link href="/admin/add-champion">
-          <AdminNavItem
-            label="Add Champion"
-            icon={MdLibraryAdd}
-            selected={pathname === "/admin/add-champion"}
-          />
-        </Link>
-      </div>
-    </Container>
+    <div className="top-20 pt-4">
+      <Container2>
+        <div className="flex flex-row items-center justify-between md:justify-center gap-4 md:gap-6 ">
+          <Link href="/admin">
+            <AdminNavItem
+              label="Admin Panel"
+              icon={MdDashboard}
+              selected={pathname === "/admin"}
+            />
+          </Link>
+          <Link href="/admin/add-champion">
+            <AdminNavItem
+              label="Add Champion"
+              icon={MdLibraryAdd}
+              selected={pathname === "/admin/add-champion"}
+            />
+          </Link>
+          <Link href="/admin/manage">
+            <AdminNavItem
+              label="Manage"
+              icon={MdDns}
+              selected={pathname === "/admin/manage"}
+            />
+          </Link>
+        </div>
+      </Container2>
+    </div>
   );
 };
 

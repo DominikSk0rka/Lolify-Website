@@ -1,6 +1,5 @@
 "use client";
 import Button from "@/app/components/inputs/Button";
-import Heading from "@/app/components/inputs/Heading";
 import Input from "@/app/components/inputs/Input";
 import TextArea from "@/app/components/inputs/TextArea";
 import axios from "axios";
@@ -107,7 +106,6 @@ const AddChampionForm = () => {
 
   return (
     <>
-      <Heading title="Add Champion" center />
       <Input
         id="name"
         label="Name"
@@ -140,16 +138,23 @@ const AddChampionForm = () => {
           }
         }}
       />
-      {roles.map((role) => (
-        <div key={role.id}>
-          <input
-            type="checkbox"
-            id={`role${role.id}`}
-            {...register(`roles.${role.id}`)}
-          />
-          <label htmlFor={`role${role.id}`}>{role.name}</label>
+      <div className="text-center">
+        <label htmlFor="roles">Roles</label>
+        <div className="flex">
+          {roles.map((role) => (
+            <div key={role.id} className="flex items-center mr-4">
+              <input
+                type="checkbox"
+                id={`role${role.id}`}
+                {...register(`roles.${role.id}`)}
+              />
+              <label htmlFor={`role${role.id}`} className="ml-2">
+                {role.name}
+              </label>
+            </div>
+          ))}
         </div>
-      ))}
+      </div>
       <Button
         label={isLoading ? "Loading..." : "Add"}
         onClick={handleSubmit(onSubmit)}

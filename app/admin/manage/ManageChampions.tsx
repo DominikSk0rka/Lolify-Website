@@ -68,11 +68,7 @@ const ManageChampionsForm: React.FC = () => {
   };
 
   return (
-    <div className="max-w-[1150px] m-auto text-xl">
-      <div className="mb-4 mt-8">
-        <Heading title="Manage Champions" center />
-      </div>
-
+    <div className="max-w-[1150px] m-auto text-xl dark:!bg-light">
       <div style={{ height: 600, width: "100%" }}>
         <DataGrid
           rows={rows}

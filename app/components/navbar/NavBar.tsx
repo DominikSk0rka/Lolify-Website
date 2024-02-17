@@ -1,12 +1,12 @@
 "use client";
 import Link, { LinkProps } from "next/link";
-import Logo from "../Logo";
+import Logo from "./Logo";
 import useThemeSwitcher from "@/hooks/useThemeSwitcher";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { CiHeart } from "react-icons/ci";
 import Cookies from "js-cookie";
-import { Moon, Sun } from "../Icons";
+import { Moon, Sun } from "./Icons";
 
 interface CustomLinkProps extends LinkProps {
   title: string;
