@@ -18,7 +18,14 @@ const Admin = () => {
   return (
     <Container>
       <main className="dark:text-white">
-        {loggedIn ? <Link href="admin/add-champion">Admin</Link> : <NullData />}
+        {loggedIn ? (
+          <div className="flex flex-col gap-2">
+            <Link href="admin/add-champion">Admin</Link>
+            <Link href="admin/manage">Manage Champions</Link>
+          </div>
+        ) : (
+          <NullData />
+        )}
       </main>
     </Container>
   );
