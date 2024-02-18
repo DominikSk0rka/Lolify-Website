@@ -35,18 +35,19 @@ const Champions = () => {
     .slice()
     .sort((a, b) => a.name.localeCompare(b.name));
   return (
-    <main className="dark:bg-dark ">
-      <div className="text-center text-3xl font-bold pt-10 dark:text-light">
-        Champions{" "}
-      </div>
-      <Container className="p-16 xl:p-16">
-        <div className="grid grid-cols-5 sm:grid-cols-2 lg:grid-cols-2 xl-grid-cols-3 2xl:grid-cols-3 gap-8">
+    <Container className="p-16 xl:p-16 ">
+      <main className="dark:bg-dark ">
+        <div className="text-center text-3xl font-bold pt-10 dark:text-light pb-10">
+          Champions{" "}
+        </div>
+
+        <div className="grid grid-cols-5 sm:grid-cols-2 lg:grid-cols-2 xl-grid-cols-3 2xl:grid-cols-3 gap-8 ">
           {shuffledchampions.map((champion) => (
             <ChampionCard key={champion.id} champion={champion} />
           ))}
         </div>
-      </Container>
-    </main>
+      </main>
+    </Container>
   );
 };
 
