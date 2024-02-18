@@ -43,6 +43,9 @@ const ChampionDetails: React.FC<ChampionDetailsProps> = ({ champion }) => {
   });
 
   const [likeCount, setLikeCount] = useState(champion.likes_count);
+  const [token, setToken] = useState<string | null>(
+    Cookies.get("token") || null
+  );
   useEffect(() => {
     const likedStatus = Cookies.get(`liked_${champion.id}`);
     setHasLiked(likedStatus === "true");
@@ -99,9 +102,15 @@ const ChampionDetails: React.FC<ChampionDetailsProps> = ({ champion }) => {
           <p>{likeCount}</p>
         </div>
         <div>
-          <button onClick={handleLikeClick}>
-            {hasLiked ? "Unlike" : "Like"}
-          </button>
+          <div>
+            {token ? (
+              <button onClick={handleLikeClick}>
+                {hasLiked ? "Unlike" : "Like"}
+              </button>
+            ) : (
+              <p>Please log in to like this champion.</p>
+            )}
+          </div>
         </div>
       </div>
 
