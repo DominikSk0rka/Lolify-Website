@@ -35,7 +35,7 @@ const Champions = () => {
     .slice()
     .sort((a, b) => a.name.localeCompare(b.name));
   return (
-    <Container className="p-16 xl:p-16 ">
+    <Container className="p-4 xl:p-8 sm:p-4 ">
       <main className="dark:bg-dark ">
         <div className="text-center text-3xl font-bold pt-10 dark:text-light pb-10">
           Champions{" "}
