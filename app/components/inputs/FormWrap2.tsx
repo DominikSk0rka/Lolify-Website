@@ -2,13 +2,10 @@ const FormWrap2 = ({ children }: { children: React.ReactNode }) => {
   return (
     <div
       className="
-        min-h-fit
-        h-full
         flex
         justify-center
         pb-12
         pt-12
-       
         "
     >
       <div
@@ -20,7 +17,7 @@ const FormWrap2 = ({ children }: { children: React.ReactNode }) => {
             flex-col
             gap-6
             items-center
-            shadow-xl
+            shadow-sm
             shadow-slate-200
             rounded-md
             p-4

@@ -47,7 +47,7 @@ const NullData = () => {
         </Container>
       </div>
 
-      <div className="flex-col text-dark w-gull  dark:text-light hidden xl:flex">
+      <div className="flex-col text-dark w-gull  dark:text-light hidden xl:flex pt-10">
         <AnimatedText text="Oops..." className="!text-2xl " />
         <p className="mt-2 font-medium self-start text-start xl:!text-center">
           <TypeAnimation

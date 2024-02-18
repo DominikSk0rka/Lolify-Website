@@ -12,6 +12,9 @@ const AddChampionForm = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [validationErrors, setValidationErrors] = useState({});
   const [isChampionCreated, setisChampionCreated] = useState(false);
+  const Horizontal = () => {
+    return <hr className="w-[30% mt-5 mb-5] border border-slate-300" />;
+  };
   const {
     register,
     handleSubmit,
@@ -160,7 +163,7 @@ const AddChampionForm = () => {
   };
 
   return (
-    <>
+    <div>
       <Input
         id="name"
         label="Name"
@@ -184,12 +187,14 @@ const AddChampionForm = () => {
         register={register}
         errors={errors}
       />
-
       <div className="text-center">
-        <label htmlFor="roles">Roles</label>
-        <div className="flex">
+        <Horizontal />
+        <label htmlFor="roles" className="text-2xl">
+          Roles
+        </label>
+        <div className="flex flex-row items-center justify-between">
           {roles.map((role) => (
-            <div key={role.id} className="flex items-center mr-4">
+            <div key={role.id} className="flex items-center mr-2">
               <input
                 type="checkbox"
                 id={`role${role.id}`}
@@ -201,156 +206,183 @@ const AddChampionForm = () => {
             </div>
           ))}
         </div>
-        <div className="pt-5 pb-5 text-center">
-          Zdjęcie
+        <Horizontal />
+        <div>
+          <div className="text-2xl">Select Main Image</div>
+          <div className="pt-5 pb-5 text-center">
+            <input
+              type="file"
+              id="image_file"
+              onChange={(event) => {
+                if (event.target.files && event.target.files.length > 0) {
+                  const file = event.target.files[0];
+                  setValue("image_file", file);
+                }
+              }}
+            />
+          </div>
+        </div>
+
+        <div className="flex">
+          <Input
+            id="q_name"
+            label="Q name"
+            disabled={isLoading}
+            register={register}
+            errors={errors}
+          />
           <input
             type="file"
-            id="image_file"
+            id="q_image_file"
             onChange={(event) => {
               if (event.target.files && event.target.files.length > 0) {
                 const file = event.target.files[0];
-                setValue("image_file", file);
+                setValue("q_image_file", file);
+              }
+            }}
+          />
+        </div>
+        <div className="flex">
+          <Input
+            id="w_name"
+            label="W name"
+            disabled={isLoading}
+            register={register}
+            errors={errors}
+          />
+          <input
+            type="file"
+            id="w_image_file"
+            onChange={(event) => {
+              if (event.target.files && event.target.files.length > 0) {
+                const file = event.target.files[0];
+                setValue("w_image_file", file);
               }
             }}
           />
         </div>
 
-        <Input
-          id="q_name"
-          label="Q"
-          disabled={isLoading}
-          register={register}
-          errors={errors}
-        />
-        <input
-          type="file"
-          id="q_image_file"
-          onChange={(event) => {
-            if (event.target.files && event.target.files.length > 0) {
-              const file = event.target.files[0];
-              setValue("q_image_file", file);
-            }
-          }}
-        />
-        <Input
-          id="w_name"
-          label="W"
-          disabled={isLoading}
-          register={register}
-          errors={errors}
-        />
-        <input
-          type="file"
-          id="w_image_file"
-          onChange={(event) => {
-            if (event.target.files && event.target.files.length > 0) {
-              const file = event.target.files[0];
-              setValue("w_image_file", file);
-            }
-          }}
-        />
-        <Input
-          id="e_name"
-          label="E"
-          disabled={isLoading}
-          register={register}
-          errors={errors}
-        />
-        <input
-          type="file"
-          id="e_image_file"
-          onChange={(event) => {
-            if (event.target.files && event.target.files.length > 0) {
-              const file = event.target.files[0];
-              setValue("e_image_file", file);
-            }
-          }}
-        />
-        <Input
-          id="r_name"
-          label="R"
-          disabled={isLoading}
-          register={register}
-          errors={errors}
-        />
-        <input
-          type="file"
-          id="r_image_file"
-          onChange={(event) => {
-            if (event.target.files && event.target.files.length > 0) {
-              const file = event.target.files[0];
-              setValue("r_image_file", file);
-            }
-          }}
-        />
-        <Input
-          id="passive_name"
-          label="Passive"
-          disabled={isLoading}
-          register={register}
-          errors={errors}
-        />
-        <input
-          type="file"
-          id="passive_image_file"
-          onChange={(event) => {
-            if (event.target.files && event.target.files.length > 0) {
-              const file = event.target.files[0];
-              setValue("passive_image_file", file);
-            }
-          }}
-        />
-        {/*------------------------------------------------------------------*/}
-        <div className="pt-10">
-          <input
-            type="file"
-            id="skin_1_image_file"
-            onChange={(event) => {
-              if (event.target.files && event.target.files.length > 0) {
-                const file = event.target.files[0];
-                setValue("skin_1_image_file", file);
-              }
-            }}
+        <div className="flex">
+          <Input
+            id="e_name"
+            label="E name"
+            disabled={isLoading}
+            register={register}
+            errors={errors}
           />
           <input
             type="file"
-            id="skin_2_image_file"
+            id="e_image_file"
             onChange={(event) => {
               if (event.target.files && event.target.files.length > 0) {
                 const file = event.target.files[0];
-                setValue("skin_2_image_file", file);
-              }
-            }}
-          />
-          <input
-            type="file"
-            id="skin_3_image_file"
-            onChange={(event) => {
-              if (event.target.files && event.target.files.length > 0) {
-                const file = event.target.files[0];
-                setValue("skin_3_image_file", file);
-              }
-            }}
-          />
-          <input
-            type="file"
-            id="skin_4_image_file"
-            onChange={(event) => {
-              if (event.target.files && event.target.files.length > 0) {
-                const file = event.target.files[0];
-                setValue("skin_3_image_file", file);
+                setValue("e_image_file", file);
               }
             }}
           />
         </div>
+        <div className="flex">
+          <Input
+            id="r_name"
+            label="R name"
+            disabled={isLoading}
+            register={register}
+            errors={errors}
+          />
+          <input
+            type="file"
+            id="r_image_file"
+            onChange={(event) => {
+              if (event.target.files && event.target.files.length > 0) {
+                const file = event.target.files[0];
+                setValue("r_image_file", file);
+              }
+            }}
+          />
+        </div>
+        <div className="flex">
+          <Input
+            id="passive_name"
+            label="Passive"
+            disabled={isLoading}
+            register={register}
+            errors={errors}
+          />
+          <input
+            type="file"
+            id="passive_image_file"
+            onChange={(event) => {
+              if (event.target.files && event.target.files.length > 0) {
+                const file = event.target.files[0];
+                setValue("passive_image_file", file);
+              }
+            }}
+          />
+        </div>
+        <div className="pt-5">
+          <div className="flex flex-col items-center">
+            Skin 1
+            <input
+              type="file"
+              id="skin_1_image_file"
+              onChange={(event) => {
+                if (event.target.files && event.target.files.length > 0) {
+                  const file = event.target.files[0];
+                  setValue("skin_1_image_file", file);
+                }
+              }}
+            />
+          </div>
+          <Horizontal />
+          <div className="flex flex-col items-center">
+            Skin 2
+            <input
+              type="file"
+              id="skin_2_image_file"
+              onChange={(event) => {
+                if (event.target.files && event.target.files.length > 0) {
+                  const file = event.target.files[0];
+                  setValue("skin_2_image_file", file);
+                }
+              }}
+            />
+          </div>
+          <Horizontal />
+          <div className="flex flex-col items-center">
+            Skin 3
+            <input
+              type="file"
+              id="skin_3_image_file"
+              onChange={(event) => {
+                if (event.target.files && event.target.files.length > 0) {
+                  const file = event.target.files[0];
+                  setValue("skin_3_image_file", file);
+                }
+              }}
+            />
+          </div>
+          <Horizontal />
+          <div className="flex flex-col items-center pb-5">
+            Skin 4
+            <input
+              type="file"
+              id="skin_4_image_file"
+              onChange={(event) => {
+                if (event.target.files && event.target.files.length > 0) {
+                  const file = event.target.files[0];
+                  setValue("skin_3_image_file", file);
+                }
+              }}
+            />
+          </div>
+        </div>
       </div>
-      {/*-----------------------------------------------------------------------------*/}
 
       <Button
         label={isLoading ? "Loading..." : "Add"}
         onClick={handleSubmit(onSubmit)}
       />
-    </>
+    </div>
   );
 };
 
