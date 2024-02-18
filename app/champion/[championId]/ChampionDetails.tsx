@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { MdCheckCircle } from "react-icons/md";
+import Cookies from "js-cookie";
 
 interface ChampionDetailsProps {
   champion: any;
@@ -41,6 +42,39 @@ const ChampionDetails: React.FC<ChampionDetailsProps> = ({ champion }) => {
     passive_name: champion.passive_name,
   });
 
+  const [likeCount, setLikeCount] = useState(champion.likes_count);
+  useEffect(() => {
+    const likedStatus = Cookies.get(`liked_${champion.id}`);
+    setHasLiked(likedStatus === "true");
+  }, [champion.id]);
+  const [hasLiked, setHasLiked] = useState(false);
+  const handleLikeClick = async () => {
+    try {
+      const token = Cookies.get("token");
+
+      const apiEndpoint = hasLiked
+        ? `https://lolify.fly.dev/api/champion/dislike/${champion.id}`
+        : `https://lolify.fly.dev/api/champion/like/${champion.id}`;
+
+      const response = await fetch(apiEndpoint, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      if (response.ok) {
+        setLikeCount(hasLiked ? likeCount - 1 : likeCount + 1);
+        setHasLiked(!hasLiked);
+        Cookies.set(`liked_${champion.id}`, String(!hasLiked));
+        router.refresh;
+      } else {
+        console.error("Failed to toggle like. Response:", response);
+      }
+    } catch (error) {
+      console.error("Error toggling like", error);
+    }
+  };
   return (
     <div className="p-8 grid grid-cols-2 lg:grid-cols-1 gap-12">
       <div className="relative">
@@ -62,9 +96,13 @@ const ChampionDetails: React.FC<ChampionDetailsProps> = ({ champion }) => {
         <h2 className="text-justify dark:text-light">{champion.description}</h2>
         <div className="flex pt-5 gap-2 text-2xl dark:text-light">
           <p className="font-medium text-slate-700 dark:text-light">Likes: </p>
-          <p>{champion.likes_count}</p>
+          <p>{likeCount}</p>
         </div>
-        <button></button>
+        <div>
+          <button onClick={handleLikeClick}>
+            {hasLiked ? "Unlike" : "Like"}
+          </button>
+        </div>
       </div>
 
       {/* skile---------------------------------------*/}
