@@ -60,9 +60,8 @@ const Champion = ({ params }: { params: IParams }) => {
   }, [params.championId]);
 
   return (
-    <div className="p-8">
+    <div className="">
       <Container>
-        {/* Render ChampionDetails with the fetched champion data */}
         {champion && <ChampionDetails champion={champion} />}
       </Container>
     </div>
