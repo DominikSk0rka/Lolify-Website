@@ -10,8 +10,24 @@ interface IParams {
 interface Champion {
   id: number;
   name: string;
+  title: string;
+  description: string;
   roles: string;
   image_file: string;
+  q_name: string;
+  w_name: string;
+  e_name: string;
+  r_name: string;
+  passive_name: string;
+  q_image_file: string;
+  w_image_file: string;
+  e_image_file: string;
+  r_image_file: string;
+  passive_image_file: string;
+  skin_1_image_file: string;
+  skin_2_image_file: string;
+  skin_3_image_file: string;
+  skin_4_image_file: string;
 }
 
 const fetchChampionById = async (id: string): Promise<Champion | null> => {
@@ -19,6 +35,7 @@ const fetchChampionById = async (id: string): Promise<Champion | null> => {
     const response = await axios.get(
       `https://lolify.fly.dev/api/champion/${id}`
     );
+    console.log("API Response:", response.data);
     return response.data;
   } catch (error) {
     console.error("Error fetching champion data:", error);
@@ -29,10 +46,8 @@ const fetchChampionById = async (id: string): Promise<Champion | null> => {
 const Champion = ({ params }: { params: IParams }) => {
   console.log("params", params);
 
-  // Use state to store the champion data
   const [champion, setChampion] = useState<Champion | null>(null);
 
-  // Fetch champion data when the component mounts
   useEffect(() => {
     const fetchChampionData = async () => {
       if (params.championId) {
