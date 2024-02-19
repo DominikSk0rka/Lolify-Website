@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import Cookies from "js-cookie";
 import AdminNav from "../components/admin/AdminNav";
 import Container2 from "../components/inputs/Container2";
-import NullData from "../components/NullData";
+import NullData from "../components/navbar/NullData";
 
 const AdminLayout = ({ children }: { children: React.ReactNode }) => {
   const [loggedIn, setLoggedIn] = useState(false);

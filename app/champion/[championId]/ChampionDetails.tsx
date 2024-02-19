@@ -104,7 +104,7 @@ const ChampionDetails: React.FC<ChampionDetailsProps> = ({ champion }) => {
         <div>
           <div>
             {token ? (
-              <button onClick={handleLikeClick}>
+              <button onClick={handleLikeClick} className="dark:text-light">
                 {hasLiked ? "Unlike" : "Like"}
               </button>
             ) : (

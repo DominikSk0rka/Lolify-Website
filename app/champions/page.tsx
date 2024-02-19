@@ -3,7 +3,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Cookies from "js-cookie";
-import ChampionCard from "../components/championsDisplay/ChampionCard";
+import ChampionCard from "./ChampionCard";
 import Container from "../components/inputs/Container";
 
 interface Champion {

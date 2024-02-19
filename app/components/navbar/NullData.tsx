@@ -2,8 +2,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { TypeAnimation } from "react-type-animation";
-import Container from "./inputs/Container";
-import AnimatedText from "./animations/AnimatedText";
+import Container from "../inputs/Container";
+import AnimatedText from "../animations/AnimatedText";
 
 const NullData = () => {
   return (
