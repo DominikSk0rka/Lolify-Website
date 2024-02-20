@@ -3,6 +3,7 @@ import Container from "@/app/components/inputs/Container";
 import ChampionDetails from "./ChampionDetails";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import Cookies from "js-cookie";
 
 interface IParams {
   championId?: string;
@@ -32,8 +33,15 @@ interface Champion {
 
 const fetchChampionById = async (id: string): Promise<Champion | null> => {
   try {
+    const token = Cookies.get("token");
     const response = await axios.get(
-      `https://lolify.fly.dev/api/champion/${id}`
+      `https://lolify.fly.dev/api/champion/${id}`,
+      {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      }
     );
     console.log("API Response:", response.data);
     return response.data;

@@ -17,13 +17,13 @@ const FavoriteClient = () => {
   useEffect(() => {
     const token = Cookies.get("token");
     axios
-      .get("https://lolify.fly.dev/api/champion", {
+      .get("https://lolify.fly.dev/api/me", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       })
       .then((response) => {
-        setChampions(response.data);
+        setChampions(response.data.likes);
       });
   }, []);
 
