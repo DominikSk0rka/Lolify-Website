@@ -10,7 +10,7 @@ import toast from "react-hot-toast";
 interface Champion {
   id: number;
   name: string;
-  roles: string;
+  title: string;
   image_file: string;
 }
 
@@ -34,14 +34,14 @@ const ManageChampionsForm: React.FC = () => {
   const rows = champions.map((champion) => ({
     id: champion.id,
     name: champion.name,
-    roles: champion.roles,
+    title: champion.title,
     image_file: champion.image_file,
   }));
 
   const columns: GridColDef[] = [
     { field: "name", headerName: "Name", width: 180 },
     { field: "id", headerName: "ID", width: 100 },
-    { field: "roles", headerName: "Role", width: 200 },
+    { field: "title", headerName: "Title", width: 200 },
     {
       field: "action",
       headerName: "Delete",

@@ -104,11 +104,13 @@ const NavBar = () => {
         </nav>
 
         <nav className="px-2 flex flex-row items-center">
-          <div className="transition hover:scale-150">
-            <Link href="/favorite">
-              <CiHeart size={40} />
-            </Link>
-          </div>
+          {isLoggedIn && (
+            <div className="transition hover:scale-150">
+              <Link href="/favorite">
+                <CiHeart size={40} />
+              </Link>
+            </div>
+          )}
 
           <div className="transition hover:scale-110">
             {isLoggedIn ? (
@@ -154,11 +156,13 @@ const NavBar = () => {
           </nav>
 
           <nav className="flex items-center justify-center flex-wrap mt-5">
-            <div className="transition hover:scale-105">
-              <Link href="/favorite">
-                <CiHeart size={40} />
-              </Link>
-            </div>
+            {isLoggedIn && (
+              <div className="transition hover:scale-150">
+                <Link href="/favorite">
+                  <CiHeart size={40} />
+                </Link>
+              </div>
+            )}
 
             <button
               onClick={() => setMode(mode === "light" ? "dark" : "light")}

@@ -51,6 +51,7 @@ const LoginForm = () => {
         console.log(token);
         Cookies.set("token", response.data.access_token, { expires: 1 / 24 });
         router.push("/");
+        window.location.reload();
         console.log("Token z sesji:", Cookies.get("token"));
       })
       .catch((error) => {
