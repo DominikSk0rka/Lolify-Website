@@ -15,7 +15,7 @@ const Admin = () => {
   }, []);
 
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center w-full h-full dark:bg-dark">
       <div className="dark:text-light dark:bg-dark text-center">
         <div className="text-6xl pt-10 font-bold font-mono">Admin Panel</div>
         <div className="mx-auto mt-5">
