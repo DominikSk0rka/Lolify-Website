@@ -39,7 +39,7 @@ export default function Home() {
           </div>
           <SelfWritingText />
           <div className="text-center text-3xl font-bold pt-10">
-            Top Champion
+            Top Champions
           </div>
           <Championstop />
         </Container>
