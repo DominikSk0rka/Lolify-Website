@@ -2,7 +2,7 @@ import { TypeAnimation } from "react-type-animation";
 
 const SelfWritingText = () => {
   return (
-    <div className="text-center font-mono">
+    <div className="text-center font-mono pb-10">
       <TypeAnimation
         sequence={[
           "I bring warmth to the hearts...",

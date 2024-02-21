@@ -46,55 +46,59 @@ const Champions = () => {
   };
 
   return (
-    <main className="dark:bg-dark p-8 w-full h-full">
-      <h2 className="text-center text-slate-700 text-2xl pb-5">
-        Search for hero by role:
-      </h2>
-      <div className="dark:text-light flex flex-row justify-center items-center gap-2 pb-5">
-        <button
-          onClick={() => handleRoleButtonClick(null)}
-          className="flex items-center bg-dark text-light p-2.5 px-4 rounded-lg text-lg font-semibold transition hover:scale-105 dark:bg-light dark:text-dark"
-        >
-          ALL
-        </button>
-        <button
-          onClick={() => handleRoleButtonClick(1)}
-          className="flex items-center bg-dark text-light p-2.5 px-4 md:px-2  rounded-lg text-lg font-semibold transition hover:scale-105 dark:bg-light dark:text-dark"
-        >
-          TOP
-        </button>
-        <button
-          onClick={() => handleRoleButtonClick(2)}
-          className="flex items-center bg-dark text-light p-2.5 px-4 md:px-2  rounded-lg text-lg font-semibold transition hover:scale-105 dark:bg-light dark:text-dark"
-        >
-          JUNGLE
-        </button>
-        <button
-          onClick={() => handleRoleButtonClick(3)}
-          className="flex items-center bg-dark text-light p-2.5 px-4 md:px-2  rounded-lg text-lg font-semibold transition hover:scale-105 dark:bg-light dark:text-dark"
-        >
-          MID
-        </button>
-        <button
-          onClick={() => handleRoleButtonClick(4)}
-          className="flex items-center bg-dark text-light p-2.5 px-4 md:px-2  rounded-lg text-lg font-semibold transition hover:scale-105 dark:bg-light dark:text-dark"
-        >
-          ADC
-        </button>
-        <button
-          onClick={() => handleRoleButtonClick(5)}
-          className="flex items-center bg-dark text-light p-2.5 px-4 md:px-2 rounded-lg text-lg font-semibold transition hover:scale-105 dark:bg-light dark:text-dark"
-        >
-          SUPPORT
-        </button>
-      </div>
+    <div className="w-full h-full dark:bg-dark">
+      <div className="dark:bg-dark p-8  ">
+        <div>
+          <h2 className="text-center text-slate-700 text-2xl pb-5 dark:text-light">
+            Search for hero by role:
+          </h2>
+          <div className="dark:text-light flex flex-row justify-center items-center gap-2 pb-5">
+            <button
+              onClick={() => handleRoleButtonClick(null)}
+              className="flex items-center bg-dark text-light p-2.5 px-4 rounded-lg text-lg font-semibold transition hover:scale-105 dark:bg-light dark:text-dark"
+            >
+              ALL
+            </button>
+            <button
+              onClick={() => handleRoleButtonClick(1)}
+              className="flex items-center bg-dark text-light p-2.5 px-4 md:px-2  rounded-lg text-lg font-semibold transition hover:scale-105 dark:bg-light dark:text-dark"
+            >
+              TOP
+            </button>
+            <button
+              onClick={() => handleRoleButtonClick(2)}
+              className="flex items-center bg-dark text-light p-2.5 px-4 md:px-2  rounded-lg text-lg font-semibold transition hover:scale-105 dark:bg-light dark:text-dark"
+            >
+              JUNGLE
+            </button>
+            <button
+              onClick={() => handleRoleButtonClick(3)}
+              className="flex items-center bg-dark text-light p-2.5 px-4 md:px-2  rounded-lg text-lg font-semibold transition hover:scale-105 dark:bg-light dark:text-dark"
+            >
+              MID
+            </button>
+            <button
+              onClick={() => handleRoleButtonClick(4)}
+              className="flex items-center bg-dark text-light p-2.5 px-4 md:px-2  rounded-lg text-lg font-semibold transition hover:scale-105 dark:bg-light dark:text-dark"
+            >
+              ADC
+            </button>
+            <button
+              onClick={() => handleRoleButtonClick(5)}
+              className="flex items-center bg-dark text-light p-2.5 px-4 md:px-2 rounded-lg text-lg font-semibold transition hover:scale-105 dark:bg-light dark:text-dark"
+            >
+              SUPPORT
+            </button>
+          </div>
 
-      <div className="grid grid-cols-5 sm:grid-cols-2 lg:grid-cols-2 xl-grid-cols-3 2xl:grid-cols-3 gap-8 dark:bg-dark">
-        {shuffledchampions.map((champion) => (
-          <ChampionCard key={champion.id} champion={champion} />
-        ))}
+          <div className="grid grid-cols-5 sm:grid-cols-2 lg:grid-cols-2 xl-grid-cols-3 2xl:grid-cols-3 gap-8 dark:bg-dark">
+            {shuffledchampions.map((champion) => (
+              <ChampionCard key={champion.id} champion={champion} />
+            ))}
+          </div>
+        </div>
       </div>
-    </main>
+    </div>
   );
 };
 
