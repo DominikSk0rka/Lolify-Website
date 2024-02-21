@@ -119,7 +119,9 @@ const ChampionDetails: React.FC<ChampionDetailsProps> = ({ champion }) => {
                 {hasLiked ? "Unlike" : "Like"}
               </button>
             ) : (
-              <p>Please log in to like this champion.</p>
+              <p className="dark:text-light">
+                Please log in to like this champion.
+              </p>
             )}
           </div>
         </div>

@@ -72,6 +72,7 @@ const NavBar = () => {
   const handleLogout = () => {
     Cookies.remove("token");
     setIsLoggedIn(false);
+    window.location.reload();
   };
 
   return (
