@@ -47,7 +47,10 @@ const Champions = () => {
 
   return (
     <main className="dark:bg-dark p-8 w-full h-full">
-      <div className="dark:text-light flex flex-row justify-center items-center gap-2">
+      <h2 className="text-center text-slate-700 text-2xl pb-5">
+        Search for hero by role:
+      </h2>
+      <div className="dark:text-light flex flex-row justify-center items-center gap-2 pb-5">
         <button
           onClick={() => handleRoleButtonClick(null)}
           className="flex items-center bg-dark text-light p-2.5 px-4 rounded-lg text-lg font-semibold transition hover:scale-105 dark:bg-light dark:text-dark"
@@ -84,9 +87,6 @@ const Champions = () => {
         >
           SUPPORT
         </button>
-      </div>
-      <div className="text-center text-3xl font-bold pt-10 dark:text-light pb-10">
-        Champions{" "}
       </div>
 
       <div className="grid grid-cols-5 sm:grid-cols-2 lg:grid-cols-2 xl-grid-cols-3 2xl:grid-cols-3 gap-8 dark:bg-dark">
