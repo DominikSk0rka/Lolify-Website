@@ -52,7 +52,7 @@ const Champions = () => {
           <h2 className="text-center text-slate-700 text-2xl pb-5 dark:text-light">
             Search for hero by role:
           </h2>
-          <div className="dark:text-light flex flex-row justify-center items-center gap-2 pb-5">
+          <div className="dark:text-light flex flex-row justify-center items-center gap-2 pb-5 flex-wrap">
             <button
               onClick={() => handleRoleButtonClick(null)}
               className="flex items-center bg-dark text-light p-2.5 px-4 rounded-lg text-lg font-semibold transition hover:scale-105 dark:bg-light dark:text-dark"

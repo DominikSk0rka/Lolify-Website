@@ -9,7 +9,7 @@ import Championstop from "./components/top";
 export default function Home() {
   return (
     <main className="flex items-center text-dark dark:bg-dark  dark:text-light">
-      <div>
+      <div className="w-full">
         <Container className="pt-0 xl:pt-0 lg:pt-0 md:pt-0 sm:pt-0">
           <div className="flex items-center justify-between w-full xl:flex-col">
             <ShakingImage />
