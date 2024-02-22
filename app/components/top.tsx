@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Cookies from "js-cookie";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import { CiHeart } from "react-icons/ci";
+import { GoTrophy } from "react-icons/go";
 
 interface Champion {
   id: number;
@@ -18,10 +18,28 @@ const ChampionCard: React.FC<{ champion: Champion; place: number }> = ({
   place,
 }) => {
   const router = useRouter();
+
+  const cardColors =
+    place === 1
+      ? "bg-yellow-300 text-black"
+      : place === 2
+      ? "bg-gray-500 text-black"
+      : place === 3
+      ? "bg-yellow-700 text-black"
+      : "";
+  const placeDescription =
+    place === 1
+      ? "1st place"
+      : place === 2
+      ? "2nd place"
+      : place === 3
+      ? "3rd place"
+      : null;
+
   return (
     <div
       onClick={() => router.push(`/champion/${champion.id}`)}
-      className="col-span-1 cursor-pointer rounded-b-xl border-[1.5px] border-dark bg-light dark:border-light dark:text-light dark:bg-dark/70 transition hover:scale-105 text-center text-sm"
+      className={`col-span-1 cursor-pointer rounded-b-xl border-[1.5px] border-dark dark:border-light dark:text-light transition hover:scale-105 text-center text-sm`}
     >
       <div className="flex flex-col">
         <div className="relative pb-6">
@@ -36,11 +54,15 @@ const ChampionCard: React.FC<{ champion: Champion; place: number }> = ({
         <div className="font-bold pb-2 text-2xl">{champion.name}</div>
         <div className="text-slate-700 dark:text-light pb-4 text-xl flex flex-row items-center justify-center gap-2">
           Total likes: {champion.users_count}
-          <h1 className="text-rose-400">
-            <CiHeart size={40} />
+          <h1 className="text-yellow-300">
+            <GoTrophy size={40} />
           </h1>
         </div>
-        <div className="font-bold text-xl pb-4">Top: {place}</div>
+        <div
+          className={`font-bold font-mono text-xl pb-4 pt-5 rounded-b-xl ${cardColors}`}
+        >
+          {placeDescription}
+        </div>
       </div>
     </div>
   );
