@@ -35,6 +35,14 @@ const ChampionCard: React.FC<{ champion: Champion; place: number }> = ({
       : place === 3
       ? "3rd place"
       : null;
+  const trophyColor =
+    place === 1
+      ? "text-yellow-300"
+      : place === 2
+      ? "text-gray-500"
+      : place === 3
+      ? "text-yellow-700"
+      : "";
 
   return (
     <div
@@ -54,7 +62,7 @@ const ChampionCard: React.FC<{ champion: Champion; place: number }> = ({
         <div className="font-bold pb-2 text-2xl">{champion.name}</div>
         <div className="text-slate-700 dark:text-light pb-4 text-xl flex flex-row items-center justify-center gap-2">
           Total likes: {champion.users_count}
-          <h1 className="text-yellow-300">
+          <h1 className={trophyColor}>
             <GoTrophy size={40} />
           </h1>
         </div>
