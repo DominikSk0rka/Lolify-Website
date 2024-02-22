@@ -23,6 +23,11 @@ Hosted Website👇: <br />
 
 ![main4](https://github.com/DominikSk0rka/Lolify-Website/assets/147190917/5d54e851-840b-4a9e-9b88-b7c4c457440a)
 
+### Other Repo in this project
+- Api https://github.com/prezeswastaken/lolify
+- Mobile App https://github.com/orlowski11/lolify-android
+- Desktop App https://github.com/MichalTurowski/lolify-desktop
+
 ### Resources Used in This Project
 
 - Soraka animation in the main page: [from here](https://www.pinterest.com/pin/soraka-fuego-gif-soraka-fuego-prender-discover-share-gifs--466052261445882644/)
