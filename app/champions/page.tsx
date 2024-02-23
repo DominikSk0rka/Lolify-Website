@@ -56,36 +56,42 @@ const Champions = () => {
             <button
               onClick={() => handleRoleButtonClick(null)}
               className="flex items-center bg-dark text-light p-2.5 px-4 rounded-lg text-lg font-semibold transition hover:scale-105 dark:bg-light dark:text-dark"
+              data-cy="allButton"
             >
               ALL
             </button>
             <button
               onClick={() => handleRoleButtonClick(1)}
               className="flex items-center bg-dark text-light p-2.5 px-4 md:px-2  rounded-lg text-lg font-semibold transition hover:scale-105 dark:bg-light dark:text-dark"
+              data-cy="topButton"
             >
               TOP
             </button>
             <button
               onClick={() => handleRoleButtonClick(2)}
               className="flex items-center bg-dark text-light p-2.5 px-4 md:px-2  rounded-lg text-lg font-semibold transition hover:scale-105 dark:bg-light dark:text-dark"
+              data-cy="jungleButton"
             >
               JUNGLE
             </button>
             <button
               onClick={() => handleRoleButtonClick(3)}
               className="flex items-center bg-dark text-light p-2.5 px-4 md:px-2  rounded-lg text-lg font-semibold transition hover:scale-105 dark:bg-light dark:text-dark"
+              data-cy="midButton"
             >
               MID
             </button>
             <button
               onClick={() => handleRoleButtonClick(4)}
               className="flex items-center bg-dark text-light p-2.5 px-4 md:px-2  rounded-lg text-lg font-semibold transition hover:scale-105 dark:bg-light dark:text-dark"
+              data-cy="adcButton"
             >
               ADC
             </button>
             <button
               onClick={() => handleRoleButtonClick(5)}
               className="flex items-center bg-dark text-light p-2.5 px-4 md:px-2 rounded-lg text-lg font-semibold transition hover:scale-105 dark:bg-light dark:text-dark"
+              data-cy="supportButton"
             >
               SUPPORT
             </button>
