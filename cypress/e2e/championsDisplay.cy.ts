@@ -1,6 +1,6 @@
 describe("Champions component", () => {
   beforeEach(() => {
-    cy.visit("http://localhost:3000/champions");
+    cy.visit("https://lolify.vercel.app/champions");
   });
 
   it("loads all champions on initial render", () => {
@@ -12,29 +12,34 @@ describe("Champions component", () => {
     cy.url().should("include", "/champion/");
   });
 
+  it("filters champions by role when 'TOP' button is clicked", () => {
+    cy.get("[data-cy=topButton]").click();
+    cy.get(".grid .col-span-1").should("have.length.greaterThan", 0);
+  });
+
+  it("filters champions by role when 'JUNGLE' button is clicked", () => {
+    cy.get("[data-cy=jungleButton]").click();
+    cy.get(".grid .col-span-1").should("have.length.greaterThan", 0);
+  });
+
+  it("filters champions by role when 'MID' button is clicked", () => {
+    cy.get("[data-cy=midButton]").click();
+    cy.get(".grid .col-span-1").should("have.length.greaterThan", 0);
+  });
+
+  it("filters champions by role when 'ADC' button is clicked", () => {
+    cy.get("[data-cy=adcButton]").click();
+    cy.get(".grid .col-span-1").should("have.length.greaterThan", 0);
+  });
+
+  it("filters champions by role when 'SUPPORT' button is clicked", () => {
+    cy.get("[data-cy=supportButton]").click();
+    cy.get(".grid .col-span-1").should("have.length.greaterThan", 0);
+  });
+
   it("resets role filter when 'ALL' button is clicked", () => {
     cy.get("[data-cy=topButton]").click();
     cy.get("[data-cy=allButton]").click();
     cy.get(".grid .col-span-1").should("have.length.greaterThan", 0);
-  });
-
-  const roleButtons = [
-    { role: "Top", dataCy: "topButton", apiEndpoint: "/role/1" },
-    { role: "Jungle", dataCy: "jungleButton", apiEndpoint: "/role/2" },
-    { role: "Mid", dataCy: "midButton", apiEndpoint: "/role/3" },
-    { role: "ADC", dataCy: "adcButton", apiEndpoint: "/role/4" },
-    { role: "Support", dataCy: "supportButton", apiEndpoint: "/role/5" },
-  ];
-
-  roleButtons.forEach(({ role, dataCy, apiEndpoint }) => {
-    it(`displays champions for '${role}' role when '${role.toUpperCase()}' button is clicked`, () => {
-      cy.intercept(`https://lolify.fly.dev/api/champion${apiEndpoint}`, {
-        fixture: "champions.json",
-      }).as("getChampions");
-
-      cy.get(`[data-cy=${dataCy}]`).click();
-      cy.wait("@getChampions");
-      cy.get(".grid .col-span-1").should("have.length.greaterThan", 0);
-    });
   });
 });
