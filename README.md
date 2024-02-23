@@ -9,19 +9,24 @@ Hosted Website👇: <br />
 
 #### Home
 
-![main1](https://github.com/DominikSk0rka/testowanmie/assets/147190917/46668249-4c43-4e7a-ba5c-519db0c24b87)
+![main1](https://github.com/DominikSk0rka/Lolify-Website/assets/147190917/a4761fc3-d7b6-4177-ba93-b3b2f77d4733)
 
 #### Full Responsive Page
 
-![main2](https://github.com/DominikSk0rka/testowanmie/assets/147190917/2d12326f-dc92-4c14-aa02-61b638dbe256)
+![main2](https://github.com/DominikSk0rka/Lolify-Website/assets/147190917/a6aeeb69-2e55-47f4-82af-08a2563fd954)
 
 #### Champions Page
 
-![main3](https://github.com/DominikSk0rka/testowanmie/assets/147190917/a4785fc2-ee0b-4eb6-90b5-374e42aee459)
+![main3](https://github.com/DominikSk0rka/Lolify-Website/assets/147190917/32127c63-2c87-4636-bbff-7c73831eae89)
 
 #### Champions Details
 
-![main4](https://github.com/DominikSk0rka/testowanmie/assets/147190917/f37e4f13-5b63-4d01-89da-34a7331ae9ce)
+![main4](https://github.com/DominikSk0rka/Lolify-Website/assets/147190917/5d54e851-840b-4a9e-9b88-b7c4c457440a)
+
+### Other Repo in this project
+- Api https://github.com/prezeswastaken/lolify
+- Mobile App https://github.com/orlowski11/lolify-android
+- Desktop App https://github.com/MichalTurowski/lolify-desktop
 
 ### Resources Used in This Project
 
