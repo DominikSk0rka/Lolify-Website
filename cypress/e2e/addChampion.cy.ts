@@ -17,7 +17,7 @@ describe("Add Champion From", () => {
     cy.getCookie("token").should("exist");
     cy.visit("https://lolify.vercel.app/admin/add-champion");
 
-    cy.get("#name").type("Champion Name");
+    cy.get("#name").type("test");
     cy.get("#title").type("Champion Title");
     cy.get("#description").type("Champion description");
     cy.get('input[id="role1"]').check();
