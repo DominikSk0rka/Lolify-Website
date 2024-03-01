@@ -11,6 +11,8 @@ import { AiOutlineMenu } from "react-icons/ai";
 import MenuItem from "./MenuItem";
 import { FaUserCircle } from "react-icons/fa";
 import { RiUser3Line } from "react-icons/ri";
+import { HiOutlineMagnifyingGlass } from "react-icons/hi2";
+import SearchBar from "./SearchBar";
 
 interface CustomLinkProps extends LinkProps {
   title: string;
@@ -64,6 +66,7 @@ const NavBar = () => {
   const [mode, setMode] = useThemeSwitcher();
   const [isOpen, setIsOpen] = useState(false);
   const [isOpenxl, setIsOpenxl] = useState(false);
+  const [isOpenSearch, setIsOpenSearch] = useState(false);
 
   const toggleOpen = useCallback(() => {
     setIsOpenxl((prev) => !prev);
@@ -71,6 +74,11 @@ const NavBar = () => {
   const handleClick = () => {
     setIsOpen(!isOpen);
   };
+
+  const handleClickSearch = () => {
+    setIsOpenSearch(!isOpenSearch);
+  };
+
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
@@ -182,6 +190,27 @@ const NavBar = () => {
           </div>
         </nav>
         {/*-----------------------------------------------------------------------------*/}
+      </div>
+
+      <div className="relative z-30 hidden sm:flex md:flex lg:flex">
+        <div onClick={handleClickSearch}>
+          <HiOutlineMagnifyingGlass size={32} />
+        </div>
+        {isOpenSearch && (
+          <div
+            className="
+          absolute
+          rounded-mb
+          shadow-mb
+          w-[350px]
+          dark:text-dark
+          right-0
+          top-20
+          curser-pointer"
+          >
+            <SearchBar />
+          </div>
+        )}
       </div>
 
       {isOpen ? (
