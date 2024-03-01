@@ -41,7 +41,7 @@ const SearchBar = () => {
         {...register("searchTerm")}
         autoComplete="off"
         type="text"
-        placeholder="Search freiend"
+        placeholder="Search friend"
         className=" p-2 border border-gray-300 rounded-l-md focus:outline-none focus:bourder-[0.5px] focus:border-slate-500 w-80 dark:text-dark"
       />
       <button
