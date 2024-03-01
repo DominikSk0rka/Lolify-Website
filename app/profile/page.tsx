@@ -38,14 +38,15 @@ const FavoriteClient = () => {
     <div className="w-full h-full dark:bg-dark">
       <Container className="p-4 xl:p-8 sm:p-4 ">
         <main className="dark:bg-dark ">
-          <div className="text-center text-3xl font-bold pt-10 dark:text-light pb-10">
-            Favorites
-          </div>
-
-          <div className="grid grid-cols-5 sm:grid-cols-2 lg:grid-cols-2 xl-grid-cols-3 2xl:grid-cols-3 gap-8 ">
-            {shuffledchampions.map((champion) => (
-              <FavoriteCard key={champion.id} champion={champion} />
-            ))}
+          <div>
+            <div className="text-center text-3xl font-bold pt-10 dark:text-light pb-10">
+              Favorites
+            </div>
+            <div className="grid grid-cols-5 sm:grid-cols-2 lg:grid-cols-2 xl-grid-cols-3 2xl:grid-cols-3 gap-8 ">
+              {shuffledchampions.map((champion) => (
+                <FavoriteCard key={champion.id} champion={champion} />
+              ))}
+            </div>
           </div>
         </main>
       </Container>

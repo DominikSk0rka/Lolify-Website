@@ -3,10 +3,14 @@ import Link, { LinkProps } from "next/link";
 import Logo from "./Logo";
 import useThemeSwitcher from "@/hooks/useThemeSwitcher";
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { CiHeart } from "react-icons/ci";
 import Cookies from "js-cookie";
 import { Moon, Sun } from "./Icons";
+import { AiOutlineMenu } from "react-icons/ai";
+import MenuItem from "./MenuItem";
+import { FaUserCircle } from "react-icons/fa";
+import { RiUser3Line } from "react-icons/ri";
 
 interface CustomLinkProps extends LinkProps {
   title: string;
@@ -59,6 +63,11 @@ const CustomMobileLink: React.FC<CustomMobileLinkProps> = ({
 const NavBar = () => {
   const [mode, setMode] = useThemeSwitcher();
   const [isOpen, setIsOpen] = useState(false);
+  const [isOpenxl, setIsOpenxl] = useState(false);
+
+  const toggleOpen = useCallback(() => {
+    setIsOpenxl((prev) => !prev);
+  }, []);
   const handleClick = () => {
     setIsOpen(!isOpen);
   };
@@ -104,34 +113,75 @@ const NavBar = () => {
           <CustomLink href="/champions" title="Champions" className="mx-4" />
         </nav>
 
-        <nav className="px-2 flex flex-row items-center">
-          {isLoggedIn && (
-            <div className="transition hover:scale-150">
-              <Link href="/favorite">
-                <CiHeart size={40} />
-              </Link>
-            </div>
-          )}
-
-          <div className="transition hover:scale-110">
-            {isLoggedIn ? (
-              <button onClick={handleLogout} className="mx-4 cursor-pointer ">
-                Logout
-              </button>
-            ) : (
-              <Link href="/login" className="mx-4">
-                Login
-              </Link>
-            )}
-          </div>
-
+        {/*-----------------------------------------------------------------------------*/}
+        <nav className="px-2 flex flex-row items-center gap-5">
           <button
             onClick={() => setMode(mode === "light" ? "dark" : "light")}
             className="flex items-center justify-center rounded-full w-10 transition hover:scale-110"
           >
             {mode === "dark" ? <Moon /> : <Sun />}
           </button>
+
+          <div className="relative z-30">
+            <div
+              onClick={toggleOpen}
+              className="
+                  flex
+                  flex-row
+                  cursor-pointer
+                  transition
+                  dark:text-light
+                text-slate-900
+                  "
+            >
+              <RiUser3Line size={40} />
+            </div>
+            {isOpenxl && (
+              <div
+                className="absolute
+               rounded-mb
+               shadow-mb
+               w-[170px]
+               bg-white
+               dark:text-dark
+               overflow-hidden
+               right-0
+               top-12
+               text-sm
+               flex
+               flex-col
+               curser-pointer"
+              >
+                {isLoggedIn ? (
+                  <div>
+                    <Link href="/profile">
+                      <MenuItem onClick={toggleOpen}>Profile</MenuItem>
+                    </Link>
+                    <hr />
+                    <MenuItem
+                      onClick={() => {
+                        handleLogout();
+                      }}
+                    >
+                      Logout
+                    </MenuItem>
+                  </div>
+                ) : (
+                  <div>
+                    <Link href="/login">
+                      <MenuItem onClick={toggleOpen}>Login</MenuItem>
+                    </Link>
+                    <hr />
+                    <Link href="/register">
+                      <MenuItem onClick={toggleOpen}>Register</MenuItem>
+                    </Link>
+                  </div>
+                )}
+              </div>
+            )}
+          </div>
         </nav>
+        {/*-----------------------------------------------------------------------------*/}
       </div>
 
       {isOpen ? (
@@ -159,8 +209,8 @@ const NavBar = () => {
           <nav className="flex items-center justify-center flex-wrap mt-5">
             {isLoggedIn && (
               <div className="transition hover:scale-150">
-                <Link href="/favorite">
-                  <CiHeart size={40} />
+                <Link href="/profile">
+                  <RiUser3Line size={40} />
                 </Link>
               </div>
             )}

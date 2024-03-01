@@ -19,10 +19,10 @@ describe("Registration Form", () => {
   it("successfully registers a new user", () => {
     cy.visit("https://lolify.vercel.app/register");
 
-    cy.get("#name").type("John Doee");
-    cy.get("#email").type("tostemailil@gmail.com");
-    cy.get("#password").type("password123");
-    cy.get("#password_confirmation").type("password123");
+    cy.get("#name").type("John Doees");
+    cy.get("#email").type("tostemailils@gmail.com");
+    cy.get("#password").type("password1234");
+    cy.get("#password_confirmation").type("password1234");
 
     cy.get("button").contains("Register").click();
     cy.contains("Registration successful").should("exist");
