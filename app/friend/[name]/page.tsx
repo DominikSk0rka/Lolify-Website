@@ -3,17 +3,21 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Cookies from "js-cookie";
-import Container from "../components/inputs/Container";
-import FavoriteCard from "./FavoriteCard";
-import { useParams, useRouter } from "next/navigation";
+import Container from "../../components/inputs/Container";
+import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
+import FavoriteCard from "../../profile/FavoriteCard";
 
+import { useParams } from "next/navigation";
 interface Champion {
   id: number;
   name: string;
 }
 
-const FavoriteClient = () => {
+const FriendClient = () => {
+  const router = useRouter();
+  const [champions, setChampions] = useState<Champion[]>([]);
+
   const [logs, setLogs] = useState<Log[]>([]);
 
   const params = useParams<{ name: string }>();
@@ -23,41 +27,42 @@ const FavoriteClient = () => {
     timestamp: String;
   };
 
-  const router = useRouter();
-  const [champions, setChampions] = useState<Champion[]>([]);
   const [user, setUser] = useState<{
     name: string;
     email: string;
     logs: [];
   } | null>(null);
-
   useEffect(() => {
     const token = Cookies.get("token");
 
-    if (!token) {
-      toast.error("You have to be logged in to search other users");
-      router.push("/");
-      return;
-    }
-
     axios
-      .get("https://lolify.fly.dev/api/me", {
+      .get(`https://lolify.fly.dev/api/profile/${params.name}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       })
       .then((response) => {
         const userData = response.data;
+        setLogs(userData.logs);
         setChampions(response.data.likes);
         setUser({
           name: userData.name,
           email: userData.email,
           logs: userData || [],
         });
-        setLogs(response.data.logs);
         console.log("User Logs:", userData.logs);
+      })
+      .catch((error) => {
+        if (error.response.status === 401) {
+          router.push("/");
+          toast.error("You are not logged in :(");
+        }
+        if (error.response.status === 404) {
+          router.push("/");
+          toast.error("User not found :(");
+        }
       });
-  }, []);
+  }, [params.name, router]);
 
   useEffect(() => {}, [champions]);
 
@@ -91,7 +96,7 @@ const FavoriteClient = () => {
           </div>
           <div className="pt-5 dark:text-light">
             <hr className="my-4 border-t-2 border-dark/70 dark:border-light" />
-            Logs:
+            Logs:{" "}
             <ul>
               {logs.map((log: Log, index: number) => (
                 <li key={index} className="flex justify-between">
@@ -107,4 +112,4 @@ const FavoriteClient = () => {
   );
 };
 
-export default FavoriteClient;
+export default FriendClient;

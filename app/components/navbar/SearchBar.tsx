@@ -23,10 +23,7 @@ const SearchBar = () => {
 
     const url = queryString.stringifyUrl(
       {
-        url: "/profile",
-        query: {
-          searchTerm: data.searchTerm,
-        },
+        url: `/friend/${data.searchTerm}`, // Fix: Use data.searchTerm instead of name
       },
       { skipNull: true }
     );
@@ -42,7 +39,7 @@ const SearchBar = () => {
         autoComplete="off"
         type="text"
         placeholder="Search friend"
-        className=" p-2 border border-gray-300 rounded-l-md focus:outline-none focus:bourder-[0.5px] focus:border-slate-500 w-80 dark:text-dark"
+        className=" p-2 border border-gray-300 rounded-l-md focus:outline-none focus:border-[0.5px] focus:border-slate-500 w-80 dark:text-dark"
       />
       <button
         onClick={handleSubmit(onSubmit)}

@@ -182,7 +182,7 @@ const AddChampionForm = () => {
 
       <TextArea
         id="description"
-        label="Opis"
+        label="description"
         disabled={isLoading}
         register={register}
         errors={errors}
