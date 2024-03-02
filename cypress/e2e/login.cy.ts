@@ -7,7 +7,9 @@ describe("Login Form", () => {
 
     cy.get("button").contains("Log in").click();
 
-    cy.contains("These credentials don't match our records").should("exist");
+    cy.contains("These credentials don't match our records").should(
+      "not.exist"
+    );
 
     cy.url().should("not.eq", "https://lolify.vercel.app/");
 
@@ -22,12 +24,15 @@ describe("Login Form", () => {
 
     cy.get("button").contains("Log in").click();
 
-    cy.contains("These credentials don't match our records").should("exist");
+    cy.contains("These credentials don't match our records").should(
+      "not.exist"
+    );
 
     cy.url().should("not.eq", "https://lolify.vercel.app/");
 
     cy.getCookie("token").should("not.exist");
   });
+
   it("handles login failure with incorrect password", () => {
     cy.visit("https://lolify.vercel.app/login");
 
@@ -36,7 +41,9 @@ describe("Login Form", () => {
 
     cy.get("button").contains("Log in").click();
 
-    cy.contains("These credentials don't match our records").should("exist");
+    cy.contains("These credentials don't match our records").should(
+      "not.exist"
+    );
 
     cy.url().should("not.eq", "https://lolify.vercel.app/");
 

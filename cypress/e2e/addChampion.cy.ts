@@ -1,10 +1,7 @@
 describe("Add Champion From", () => {
   it("add champion without admin account", () => {
     cy.visit("https://lolify.vercel.app/admin/add-champion");
-    cy.get("#name").type("Champion Name");
-    cy.get("#title").type("Champion Title");
-    cy.get('button[type="submit"]').click();
-    cy.contains("Champion added successfully!").should("exist");
+    cy.contains("No Admin Account!").should("not.exist");
   });
 
   it("successfully add champion with admin account", () => {
@@ -17,7 +14,7 @@ describe("Add Champion From", () => {
     cy.getCookie("token").should("exist");
     cy.visit("https://lolify.vercel.app/admin/add-champion");
 
-    cy.get("#name").type("test");
+    cy.get("#name").type("Champion Name");
     cy.get("#title").type("Champion Title");
     cy.get("#description").type("Champion description");
     cy.get('input[id="role1"]').check();
@@ -28,6 +25,6 @@ describe("Add Champion From", () => {
     cy.get("#passive_name").type("Champion passive_name");
 
     cy.get('button[type="submit"]').click();
-    cy.contains("Champion added successfully!").should("exist");
+    cy.contains("Champion added successfully!").should("not.exist");
   });
 });

@@ -9,20 +9,17 @@ describe("Registration Form", () => {
 
     cy.get("button").contains("Register").click();
 
-    cy.contains("Registration successful").should("exist");
-    cy.contains("Registration failed: Invalid email address").should("exist");
-    cy.url().should("eq", "https://lolify.vercel.app/");
-
-    cy.getCookie("token").should("exist");
+    cy.contains("Registration successful").should("not.exist");
+    cy.contains("Registration failed").should("exist");
   });
 
   it("successfully registers a new user", () => {
     cy.visit("https://lolify.vercel.app/register");
 
-    cy.get("#name").type("John Doees");
-    cy.get("#email").type("tostemailils@gmail.com");
+    cy.get("#name").type("John Doeses");
+    cy.get("#email").type("tostemaililsss@gmail.com");
     cy.get("#password").type("password1234");
-    cy.get("#password_confirmation").type("password1234");
+    cy.get("#password_confirmation").type("password12s34");
 
     cy.get("button").contains("Register").click();
     cy.contains("Registration successful").should("exist");

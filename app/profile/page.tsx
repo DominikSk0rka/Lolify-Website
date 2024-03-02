@@ -20,7 +20,7 @@ const FavoriteClient = () => {
 
   type Log = {
     text: String;
-    timestamp: String;
+    timestamp: string | number | Date;
   };
 
   const router = useRouter();
@@ -66,7 +66,7 @@ const FavoriteClient = () => {
     .sort((a, b) => a.name.localeCompare(b.name));
 
   const sortedLogs = [...logs].sort(
-    (a, b) => new Date(b.timestamp) - new Date(a.timestamp)
+    (a, b) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime()
   );
   return (
     <div className="w-full h-full dark:bg-dark">
@@ -100,7 +100,7 @@ const FavoriteClient = () => {
               <div key={index}>
                 <li className="flex justify-between">
                   <p>{log.text}</p>
-                  <p>{new Date(log.timestamp).toLocaleString()}</p>
+                  <p>{new Date(String(log.timestamp)).toLocaleString()}</p>
                 </li>
                 {index < sortedLogs.length - 1 && <hr />}
               </div>
