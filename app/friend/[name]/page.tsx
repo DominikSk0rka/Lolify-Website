@@ -69,45 +69,49 @@ const FriendClient = () => {
   const shuffledchampions = champions
     .slice()
     .sort((a, b) => a.name.localeCompare(b.name));
+  const sortedLogs = [...logs].sort(
+    (a, b) => new Date(b.timestamp) - new Date(a.timestamp)
+  );
   return (
     <div className="w-full h-full dark:bg-dark">
-      <Container className="p-4 xl:p-8 sm:p-4 ">
-        <main className="dark:bg-dark ">
-          <div className="dark:text-light">
-            <h1 className="text-3xl dark:text-light font-bold">Profile</h1>
-            <div className="flex flex-row gap-2">
-              <p className="font-bold">Summoner:</p>
-              <p>{user?.name}</p>
-            </div>
-            <div className="flex flex-row gap-2">
-              <p className="font-bold">E-mail:</p>
-              <p>{user?.email}</p>
-            </div>
+      <main className="dark:bg-dark p-8">
+        <div className="dark:text-light">
+          <h1 className="text-3xl dark:text-light font-bold">Profile</h1>
+          <div className="flex flex-row gap-2">
+            <p className="font-bold">Summoner:</p>
+            <p>{user?.name}</p>
           </div>
-          <div>
-            <h1 className="text-center text-3xl font-bold pt-10 dark:text-light pb-10">
-              Favorites
-            </h1>
-            <div className="grid grid-cols-5 sm:grid-cols-2 lg:grid-cols-2 xl-grid-cols-3 2xl:grid-cols-3 gap-8 ">
-              {shuffledchampions.map((champion) => (
-                <FavoriteCard key={champion.id} champion={champion} />
-              ))}
-            </div>
+          <div className="flex flex-row gap-2">
+            <p className="font-bold">E-mail:</p>
+            <p>{user?.email}</p>
           </div>
-          <div className="pt-5 dark:text-light">
-            <hr className="my-4 border-t-2 border-dark/70 dark:border-light" />
-            Logs:{" "}
-            <ul>
-              {logs.map((log: Log, index: number) => (
-                <li key={index} className="flex justify-between">
+        </div>
+        <div>
+          <h1 className="text-center text-3xl font-bold pt-10 dark:text-light pb-10">
+            Favorites
+          </h1>
+          <div className="grid grid-cols-5 sm:grid-cols-2 lg:grid-cols-2 xl-grid-cols-3 2xl:grid-cols-3 gap-8 ">
+            {shuffledchampions.map((champion) => (
+              <FavoriteCard key={champion.id} champion={champion} />
+            ))}
+          </div>
+        </div>
+        <div className="pt-5 dark:text-light">
+          <hr className="my-4 border-t-2 border-dark/70 dark:border-light" />
+          <h1 className="font-bold text-xl pb-4"> Logs:</h1>
+          <ul>
+            {sortedLogs.map((log: Log, index: number) => (
+              <div key={index}>
+                <li className="flex justify-between">
                   <p>{log.text}</p>
-                  <p>{log.timestamp}</p>
+                  <p>{new Date(log.timestamp).toLocaleString()}</p>
                 </li>
-              ))}
-            </ul>
-          </div>
-        </main>
-      </Container>
+                {index < sortedLogs.length - 1 && <hr />}
+              </div>
+            ))}
+          </ul>
+        </div>
+      </main>
     </div>
   );
 };
