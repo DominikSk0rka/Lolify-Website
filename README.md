@@ -9,19 +9,23 @@ Hosted Website👇: <br />
 
 #### Home
 
-![main1](https://github.com/DominikSk0rka/Lolify-Website/assets/147190917/a4761fc3-d7b6-4177-ba93-b3b2f77d4733)
+![1](https://github.com/DominikSk0rka/Lolify-Website/assets/147190917/02cf9b58-003a-45d3-ba35-b5fce6789344)
 
 #### Full Responsive Page
 
-![main2](https://github.com/DominikSk0rka/Lolify-Website/assets/147190917/a6aeeb69-2e55-47f4-82af-08a2563fd954)
+![3](https://github.com/DominikSk0rka/Lolify-Website/assets/147190917/f1aec3a6-1a89-4ec5-b0cc-e6203308dc45)
 
 #### Champions Page
 
-![main3](https://github.com/DominikSk0rka/Lolify-Website/assets/147190917/32127c63-2c87-4636-bbff-7c73831eae89)
+![4](https://github.com/DominikSk0rka/Lolify-Website/assets/147190917/5d6b5873-de2f-47d3-a305-042d7827616e)
 
 #### Champions Details
 
-![main4](https://github.com/DominikSk0rka/Lolify-Website/assets/147190917/5d54e851-840b-4a9e-9b88-b7c4c457440a)
+![5](https://github.com/DominikSk0rka/Lolify-Website/assets/147190917/fad9cb91-237f-4cbf-93c2-d3689600335b)
+
+## Profile
+
+![6](https://github.com/DominikSk0rka/Lolify-Website/assets/147190917/494e8bc7-6220-455f-babe-b004a2d31b78)
 
 ### Other Repo in this project
 - Api https://github.com/prezeswastaken/lolify
