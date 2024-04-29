@@ -20,7 +20,7 @@ const ManageChampionsForm: React.FC = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("https://lolify.fly.dev/api/champion");
+        const response = await fetch("https://lolify.wheelwallet.cloud/api/champion");
         const data = await response.json();
         setChampions(data);
       } catch (error) {
@@ -60,7 +60,7 @@ const ManageChampionsForm: React.FC = () => {
   const handleDeleteChampion = async (id: number) => {
     try {
       await axios
-        .delete(`https://lolify.fly.dev/api/champion/${id}`, {
+        .delete(`https://lolify.wheelwallet.cloud/api/champion/${id}`, {
           headers: {
             "Content-Type": "multipart/form-data",
             Authorization: `Bearer ${token}`,

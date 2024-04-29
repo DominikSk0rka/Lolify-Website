@@ -83,7 +83,7 @@ const Championstop = () => {
   useEffect(() => {
     const token = Cookies.get("token");
     axios
-      .get("https://lolify.fly.dev/api/top3/champion/", {
+      .get("https://lolify.wheelwallet.cloud/api/top3/champion/", {
         headers: {
           Authorization: `Bearer ${token}`,
         },

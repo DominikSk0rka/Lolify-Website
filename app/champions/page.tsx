@@ -16,10 +16,10 @@ const Champions = () => {
 
   useEffect(() => {
     const token = Cookies.get("token");
-    let apiUrl = "https://lolify.fly.dev/api/champion/";
+    let apiUrl = "https://lolify.wheelwallet.cloud/api/champion/";
 
     if (selectedRole !== null) {
-      apiUrl = `https://lolify.fly.dev/api/champion/role/${selectedRole}`;
+      apiUrl = `https://lolify.wheelwallet.cloud/api/champion/role/${selectedRole}`;
     }
 
     axios

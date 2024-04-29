@@ -15,7 +15,7 @@ const AdminLayout = ({ children }: { children: React.ReactNode }) => {
     if (token) {
       setLoggedIn(true);
 
-      fetch("https://lolify.fly.dev/api/me", {
+      fetch("https://lolify.wheelwallet.cloud/api/me", {
         method: "GET",
         headers: {
           Authorization: `Bearer ${token}`,

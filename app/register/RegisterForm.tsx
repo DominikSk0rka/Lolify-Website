@@ -41,7 +41,7 @@ const RegisterForm = () => {
     setIsLoading(true);
     console.log(data);
     axios
-      .post("https://lolify.fly.dev/api/register", data, {
+      .post("https://lolify.wheelwallet.cloud/api/register", data, {
         headers: {
           "Content-Type": "application/json",
         },
@@ -49,7 +49,7 @@ const RegisterForm = () => {
       .then((response) => {
         toast.success("Registration successful", response.data);
         axios
-          .post("https://lolify.fly.dev/api/login", {
+          .post("https://lolify.wheelwallet.cloud/api/login", {
             email: data.email,
             password: data.password,
           })

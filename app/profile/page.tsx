@@ -41,7 +41,7 @@ const FavoriteClient = () => {
     }
 
     axios
-      .get("https://lolify.fly.dev/api/me", {
+      .get("https://lolify.wheelwallet.cloud/api/me", {
         headers: {
           Authorization: `Bearer ${token}`,
         },

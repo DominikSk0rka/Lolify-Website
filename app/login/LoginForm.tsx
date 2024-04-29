@@ -40,7 +40,7 @@ const LoginForm = () => {
     setIsLoading(true);
     console.log(data);
     axios
-      .post("https://lolify.fly.dev/api/login", data, {
+      .post("https://lolify.wheelwallet.cloud/api/login", data, {
         headers: {
           "Content-Type": "application/json",
         },

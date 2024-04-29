@@ -35,7 +35,7 @@ const fetchChampionById = async (id: string): Promise<Champion | null> => {
   try {
     const token = Cookies.get("token");
     const response = await axios.get(
-      `https://lolify.fly.dev/api/champion/${id}`,
+      `https://lolify.wheelwallet.cloud/api/champion/${id}`,
       {
         headers: {
           "Content-Type": "application/json",

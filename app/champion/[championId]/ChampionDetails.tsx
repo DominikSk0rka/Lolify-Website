@@ -57,8 +57,8 @@ const ChampionDetails: React.FC<ChampionDetailsProps> = ({ champion }) => {
       const token = Cookies.get("token");
 
       const apiEndpoint = hasLiked
-        ? `https://lolify.fly.dev/api/champion/dislike/${champion.id}`
-        : `https://lolify.fly.dev/api/champion/like/${champion.id}`;
+        ? `https://lolify.wheelwallet.cloud/api/champion/dislike/${champion.id}`
+        : `https://lolify.wheelwallet.cloud/api/champion/like/${champion.id}`;
 
       const response = await fetch(apiEndpoint, {
         method: "POST",

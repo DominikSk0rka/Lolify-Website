@@ -36,7 +36,7 @@ const FriendClient = () => {
     const token = Cookies.get("token");
 
     axios
-      .get(`https://lolify.fly.dev/api/profile/${params.name}`, {
+      .get(`https://lolify.wheelwallet.cloud/api/profile/${params.name}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

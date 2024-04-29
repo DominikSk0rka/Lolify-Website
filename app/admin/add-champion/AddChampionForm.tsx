@@ -73,7 +73,7 @@ const AddChampionForm = () => {
 
     const token = Cookies.get("token");
     axios
-      .post("https://lolify.fly.dev/api/champion", data, {
+      .post("https://lolify.wheelwallet.cloud/api/champion", data, {
         headers: {
           "Content-Type": "multipart/form-data",
           Authorization: `Bearer ${token}`,
